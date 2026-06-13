@@ -1,1268 +1,1268 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>やきとり家 すみれ | 鳥取県産大山どり専門</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>やきとり家 すみれ | 鳥取県産大山どり専門</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    :root {
-      --black:   #0E0E0E;
-      --dark:    #1C1A18;
-      --smoke:   #252220;
-      --mid:     #333030;
-      --amber:   #E8892A;
-      --amber-lt:#F5AC5A;
-      --gold:    #C8A95A;
-      --gold-lt: #E2C97E;
-      --cream:   #F5F0E8;
-      --warm-red:#C0392B;
-      --text-muted: rgba(255,255,255,0.5);
-      --text-dim:   rgba(255,255,255,0.78);
-    }
+ :root {
+ --black: #0E0E0E;
+ --dark: #1C1A18;
+ --smoke: #252220;
+ --mid: #333030;
+ --amber: #E8892A;
+ --amber-lt:#F5AC5A;
+ --gold: #C8A95A;
+ --gold-lt: #E2C97E;
+ --cream: #F5F0E8;
+ --warm-red:#C0392B;
+ --text-muted: rgba(255,255,255,0.5);
+ --text-dim: rgba(255,255,255,0.78);
+ }
 
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Hiragino Mincho ProN','Yu Mincho','游明朝',Georgia,serif; background: var(--dark); color: #fff; overflow-x: hidden; }
+ html { scroll-behavior: smooth; }
+ body { font-family: 'Hiragino Mincho ProN','Yu Mincho','游明朝',Georgia,serif; background: var(--dark); color: #fff; overflow-x: hidden; }
 
-    /* ===== HEADER ===== */
-    header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 22px 52px;
-      transition: background .4s, padding .4s, border-color .4s;
-      border-bottom: 1px solid transparent;
-    }
-    header.scrolled {
-      background: rgba(14,14,14,.96);
-      padding: 14px 52px;
-      border-color: rgba(200,169,90,.18);
-      backdrop-filter: blur(8px);
-    }
-    .logo { display:flex; align-items:center; gap:14px; text-decoration:none; }
-    .logo-img { height: 36px; }
-    .logo-text { display:flex; flex-direction:column; gap:2px; }
-    .logo-ja { font-size:15px; letter-spacing:.18em; color:#fff; font-weight:400; }
-    .logo-en { font-size:9px; letter-spacing:.38em; color:var(--gold); font-family:Georgia,serif; text-transform:uppercase; }
+ /* ===== HEADER ===== */
+ header {
+ position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+ display: flex; align-items: center; justify-content: space-between;
+ padding: 22px 52px;
+ transition: background .4s, padding .4s, border-color .4s;
+ border-bottom: 1px solid transparent;
+ }
+ header.scrolled {
+ background: rgba(14,14,14,.96);
+ padding: 14px 52px;
+ border-color: rgba(200,169,90,.18);
+ backdrop-filter: blur(8px);
+ }
+ .logo { display:flex; align-items:center; gap:14px; text-decoration:none; }
+ .logo-img { height: 36px; }
+ .logo-text { display:flex; flex-direction:column; gap:2px; }
+ .logo-ja { font-size:15px; letter-spacing:.18em; color:#fff; font-weight:400; }
+ .logo-en { font-size:9px; letter-spacing:.38em; color:var(--gold); font-family:Georgia,serif; text-transform:uppercase; }
 
-    nav { display:flex; align-items:center; gap:34px; }
-    nav a {
-      color:rgba(255,255,255,.78); text-decoration:none; font-size:13px;
-      letter-spacing:.14em; font-family:'Hiragino Kaku Gothic ProN',sans-serif;
-      transition:color .25s; position:relative;
-    }
-    nav a::after {
-      content:''; position:absolute; bottom:-3px; left:0; right:0;
-      height:1px; background:var(--gold); transform:scaleX(0); transform-origin:left; transition:transform .3s;
-    }
-    nav a:hover { color:#fff; }
-    nav a:hover::after { transform:scaleX(1); }
-    .btn-reserve {
-      background:var(--gold); color:var(--black) !important;
-      padding:10px 24px; font-size:12px !important; font-weight:700 !important;
-      letter-spacing:.18em !important; font-family:'Hiragino Kaku Gothic ProN',sans-serif !important;
-      border-radius:1px; transition:background .25s, transform .2s !important;
-    }
-    .btn-reserve::after { display:none !important; }
-    .btn-reserve:hover { background:var(--gold-lt); transform:translateY(-1px); }
+ nav { display:flex; align-items:center; gap:34px; }
+ nav a {
+ color:rgba(255,255,255,.78); text-decoration:none; font-size:13px;
+ letter-spacing:.14em; font-family:'Hiragino Kaku Gothic ProN',sans-serif;
+ transition:color .25s; position:relative;
+ }
+ nav a::after {
+ content:''; position:absolute; bottom:-3px; left:0; right:0;
+ height:1px; background:var(--gold); transform:scaleX(0); transform-origin:left; transition:transform .3s;
+ }
+ nav a:hover { color:#fff; }
+ nav a:hover::after { transform:scaleX(1); }
+ .btn-reserve {
+ background:var(--gold); color:var(--black) !important;
+ padding:10px 24px; font-size:12px !important; font-weight:700 !important;
+ letter-spacing:.18em !important; font-family:'Hiragino Kaku Gothic ProN',sans-serif !important;
+ border-radius:1px; transition:background .25s, transform .2s !important;
+ }
+ .btn-reserve::after { display:none !important; }
+ .btn-reserve:hover { background:var(--gold-lt); transform:translateY(-1px); }
 
-    /* ===== HERO ===== */
-    .hero { height:100vh; position:relative; display:flex; align-items:flex-end; justify-content:flex-start; overflow:hidden; }
-    .hero-slides { position:absolute; inset:0; }
-    .hero-slide {
-      position:absolute; inset:0; opacity:0; transition:opacity 1.4s ease;
-      background-size:cover; background-position:center;
-    }
-    .hero-slide.active { opacity:1; }
-    .hero-slide::after {
-      content:''; position:absolute; inset:0;
-      background: linear-gradient(105deg, rgba(14,14,14,.82) 0%, rgba(14,14,14,.4) 55%, rgba(14,14,14,.15) 100%),
-                  linear-gradient(180deg, rgba(14,14,14,.1) 0%, rgba(14,14,14,.75) 100%);
-    }
-    .hero-slide-1 { background-image: url('https://y-smile.co.jp/wp-content/uploads/2025/11/588093856831504606.jpg'); }
-    .hero-slide-2 { background-image: url('https://y-smile.co.jp/wp-content/uploads/2025/07/%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%80%E3%83%BC2.jpg'); }
-    .hero-slide-3 { background-image: url('https://y-smile.co.jp/wp-content/uploads/2025/11/588094607477702709.jpg'); }
+ /* ===== HERO ===== */
+ .hero { height:100vh; position:relative; display:flex; align-items:flex-end; justify-content:flex-start; overflow:hidden; }
+ .hero-slides { position:absolute; inset:0; }
+ .hero-slide {
+ position:absolute; inset:0; opacity:0; transition:opacity 1.4s ease;
+ background-size:cover; background-position:center;
+ }
+ .hero-slide.active { opacity:1; }
+ .hero-slide::after {
+ content:''; position:absolute; inset:0;
+ background: linear-gradient(105deg, rgba(14,14,14,.82) 0%, rgba(14,14,14,.4) 55%, rgba(14,14,14,.15) 100%),
+ linear-gradient(180deg, rgba(14,14,14,.1) 0%, rgba(14,14,14,.75) 100%);
+ }
+ .hero-slide-1 { background-image: url('https://y-smile.co.jp/wp-content/uploads/2025/11/588093856831504606.jpg'); }
+ .hero-slide-2 { background-image: url('https://y-smile.co.jp/wp-content/uploads/2025/07/%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%80%E3%83%BC2.jpg'); }
+ .hero-slide-3 { background-image: url('https://y-smile.co.jp/wp-content/uploads/2025/11/588094607477702709.jpg'); }
 
-    /* 炎グロー演出 */
-    .hero-glow {
-      position:absolute; bottom:0; left:0; right:0; height:40%; z-index:2;
-      background: linear-gradient(180deg, transparent 0%, rgba(232,137,42,.08) 60%, rgba(232,137,42,.18) 100%);
-      pointer-events:none;
-    }
+ /* 炎グロー演出 */
+ .hero-glow {
+ position:absolute; bottom:0; left:0; right:0; height:40%; z-index:2;
+ background: linear-gradient(180deg, transparent 0%, rgba(232,137,42,.08) 60%, rgba(232,137,42,.18) 100%);
+ pointer-events:none;
+ }
 
-    .hero-content {
-      position:relative; z-index:10;
-      padding: 0 60px 80px;
-      display:flex; flex-direction:column; align-items:flex-start; gap:20px;
-      max-width: 680px;
-    }
-    .hero-tag {
-      display:inline-flex; align-items:center; gap:10px;
-      background:var(--amber); color:var(--black);
-      font-size:11px; letter-spacing:.22em; font-weight:700;
-      padding:7px 16px; font-family:'Hiragino Kaku Gothic ProN',sans-serif;
-      animation: fadein .8s ease .2s both;
-    }
-    .hero-title {
-      font-size: clamp(48px,6.5vw,88px); font-weight:400; letter-spacing:.08em;
-      line-height:1.15; text-shadow:0 2px 24px rgba(0,0,0,.5);
-      animation: fadeup 1s ease .4s both;
-    }
-    .hero-title em { font-style:normal; color:var(--amber); }
-    .hero-title .sub-line {
-      display:block; font-size:clamp(22px,3vw,38px); font-weight:300;
-      letter-spacing:.25em; color:rgba(255,255,255,.85); margin-top:6px;
-    }
-    .hero-copy {
-      font-size:14px; color:var(--text-dim); letter-spacing:.1em; line-height:2;
-      animation: fadeup 1s ease .65s both;
-      font-family:'Hiragino Kaku Gothic ProN',sans-serif;
-      border-left:3px solid var(--amber); padding-left:16px;
-    }
-    .hero-stats {
-      display:flex; gap:32px; animation: fadeup 1s ease .8s both;
-    }
-    .hero-stat { display:flex; flex-direction:column; gap:2px; }
-    .hero-stat .num { font-size:32px; font-weight:300; color:var(--amber); line-height:1; }
-    .hero-stat .label { font-size:10px; letter-spacing:.2em; color:var(--text-muted); font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
-    .hero-stat-sep { width:1px; background:rgba(255,255,255,.15); align-self:stretch; }
+ .hero-content {
+ position:relative; z-index:10;
+ padding: 0 60px 80px;
+ display:flex; flex-direction:column; align-items:flex-start; gap:20px;
+ max-width: 680px;
+ }
+ .hero-tag {
+ display:inline-flex; align-items:center; gap:10px;
+ background:var(--amber); color:var(--black);
+ font-size:11px; letter-spacing:.22em; font-weight:700;
+ padding:7px 16px; font-family:'Hiragino Kaku Gothic ProN',sans-serif;
+ animation: fadein .8s ease .2s both;
+ }
+ .hero-title {
+ font-size: clamp(48px,6.5vw,88px); font-weight:400; letter-spacing:.08em;
+ line-height:1.15; text-shadow:0 2px 24px rgba(0,0,0,.5);
+ animation: fadeup 1s ease .4s both;
+ }
+ .hero-title em { font-style:normal; color:var(--amber); }
+ .hero-title .sub-line {
+ display:block; font-size:clamp(22px,3vw,38px); font-weight:300;
+ letter-spacing:.25em; color:rgba(255,255,255,.85); margin-top:6px;
+ }
+ .hero-copy {
+ font-size:14px; color:var(--text-dim); letter-spacing:.1em; line-height:2;
+ animation: fadeup 1s ease .65s both;
+ font-family:'Hiragino Kaku Gothic ProN',sans-serif;
+ border-left:3px solid var(--amber); padding-left:16px;
+ }
+ .hero-stats {
+ display:flex; gap:32px; animation: fadeup 1s ease .8s both;
+ }
+ .hero-stat { display:flex; flex-direction:column; gap:2px; }
+ .hero-stat .num { font-size:32px; font-weight:300; color:var(--amber); line-height:1; }
+ .hero-stat .label { font-size:10px; letter-spacing:.2em; color:var(--text-muted); font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
+ .hero-stat-sep { width:1px; background:rgba(255,255,255,.15); align-self:stretch; }
 
-    .hero-cta { display:flex; gap:12px; margin-top:4px; animation: fadeup 1s ease 1s both; }
-    .btn-amber {
-      background:var(--amber); color:#fff; padding:16px 36px;
-      font-size:13px; letter-spacing:.16em; font-weight:700;
-      text-decoration:none; font-family:'Hiragino Kaku Gothic ProN',sans-serif;
-      transition:background .25s, transform .2s; border-radius:2px;
-    }
-    .btn-amber:hover { background:var(--amber-lt); transform:translateY(-2px); }
-    .btn-gold {
-      background:var(--gold); color:var(--black); padding:16px 36px;
-      font-size:13px; letter-spacing:.16em; font-weight:700;
-      text-decoration:none; font-family:'Hiragino Kaku Gothic ProN',sans-serif;
-      transition:background .25s, transform .2s; border-radius:2px;
-    }
-    .btn-gold:hover { background:var(--gold-lt); transform:translateY(-2px); }
-    .btn-line {
-      border:1px solid rgba(255,255,255,.38); color:#fff; padding:16px 36px;
-      font-size:13px; letter-spacing:.16em; text-decoration:none; border-radius:2px;
-      font-family:'Hiragino Kaku Gothic ProN',sans-serif; transition:border-color .25s, color .25s;
-    }
-    .btn-line:hover { border-color:var(--amber); color:var(--amber); }
+ .hero-cta { display:flex; gap:12px; margin-top:4px; animation: fadeup 1s ease 1s both; }
+ .btn-amber {
+ background:var(--amber); color:#fff; padding:16px 36px;
+ font-size:13px; letter-spacing:.16em; font-weight:700;
+ text-decoration:none; font-family:'Hiragino Kaku Gothic ProN',sans-serif;
+ transition:background .25s, transform .2s; border-radius:2px;
+ }
+ .btn-amber:hover { background:var(--amber-lt); transform:translateY(-2px); }
+ .btn-gold {
+ background:var(--gold); color:var(--black); padding:16px 36px;
+ font-size:13px; letter-spacing:.16em; font-weight:700;
+ text-decoration:none; font-family:'Hiragino Kaku Gothic ProN',sans-serif;
+ transition:background .25s, transform .2s; border-radius:2px;
+ }
+ .btn-gold:hover { background:var(--gold-lt); transform:translateY(-2px); }
+ .btn-line {
+ border:1px solid rgba(255,255,255,.38); color:#fff; padding:16px 36px;
+ font-size:13px; letter-spacing:.16em; text-decoration:none; border-radius:2px;
+ font-family:'Hiragino Kaku Gothic ProN',sans-serif; transition:border-color .25s, color .25s;
+ }
+ .btn-line:hover { border-color:var(--amber); color:var(--amber); }
 
-    .hero-dots {
-      position:absolute; bottom:36px; right:52px;
-      display:flex; gap:8px; z-index:10;
-    }
-    .hero-dot {
-      width:24px; height:2px; background:rgba(255,255,255,.3); cursor:pointer;
-      transition:background .3s, width .3s;
-    }
-    .hero-dot.active { background:var(--amber); width:40px; }
+ .hero-dots {
+ position:absolute; bottom:36px; right:52px;
+ display:flex; gap:8px; z-index:10;
+ }
+ .hero-dot {
+ width:24px; height:2px; background:rgba(255,255,255,.3); cursor:pointer;
+ transition:background .3s, width .3s;
+ }
+ .hero-dot.active { background:var(--amber); width:40px; }
 
-    .scroll-hint {
-      position:absolute; bottom:40px; left:50%; transform:translateX(-50%);
-      display:flex; flex-direction:column; align-items:center; gap:8px; z-index:10;
-      animation: fadein 1.5s ease 1.2s both;
-    }
-    .scroll-hint span { font-size:9px; letter-spacing:.4em; color:var(--text-muted); }
-    .scroll-line { width:1px; height:44px; background:linear-gradient(180deg,var(--amber),transparent); animation:scrollpulse 2s ease-in-out infinite; }
-    @keyframes scrollpulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+ .scroll-hint {
+ position:absolute; bottom:40px; left:50%; transform:translateX(-50%);
+ display:flex; flex-direction:column; align-items:center; gap:8px; z-index:10;
+ animation: fadein 1.5s ease 1.2s both;
+ }
+ .scroll-hint span { font-size:9px; letter-spacing:.4em; color:var(--text-muted); }
+ .scroll-line { width:1px; height:44px; background:linear-gradient(180deg,var(--amber),transparent); animation:scrollpulse 2s ease-in-out infinite; }
+ @keyframes scrollpulse { 0%,100%{opacity:1} 50%{opacity:.3} }
 
-    /* ===== TICKER ===== */
-    .ticker { background:var(--black); border-top:1px solid rgba(200,169,90,.2); border-bottom:1px solid rgba(200,169,90,.2); padding:12px 0; overflow:hidden; }
-    .ticker-track { display:flex; gap:56px; white-space:nowrap; animation:ticker 30s linear infinite; }
-    .ticker-item { display:flex; align-items:center; gap:14px; font-size:11px; letter-spacing:.22em; color:rgba(255,255,255,.6); font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
-    .ticker-sep { width:3px; height:3px; background:var(--gold); border-radius:50%; flex-shrink:0; }
-    @keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+ /* ===== TICKER ===== */
+ .ticker { background:var(--black); border-top:1px solid rgba(200,169,90,.2); border-bottom:1px solid rgba(200,169,90,.2); padding:12px 0; overflow:hidden; }
+ .ticker-track { display:flex; gap:56px; white-space:nowrap; animation:ticker 30s linear infinite; }
+ .ticker-item { display:flex; align-items:center; gap:14px; font-size:11px; letter-spacing:.22em; color:rgba(255,255,255,.6); font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
+ .ticker-sep { width:3px; height:3px; background:var(--gold); border-radius:50%; flex-shrink:0; }
+ @keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
-    /* ===== SECTIONS ===== */
-    section { padding:96px 0; }
-    .container { max-width:1120px; margin:0 auto; padding:0 44px; }
-    .sec-label {
-      font-size:9px; letter-spacing:.55em; color:var(--gold);
-      font-family:Georgia,serif; text-transform:uppercase; margin-bottom:14px;
-      display:flex; align-items:center; gap:12px;
-    }
-    .sec-label::after { content:''; width:40px; height:1px; background:var(--gold); opacity:.45; }
-    .sec-title { font-size:clamp(26px,3.6vw,42px); font-weight:300; letter-spacing:.16em; line-height:1.45; }
+ /* ===== SECTIONS ===== */
+ section { padding:96px 0; }
+ .container { max-width:1120px; margin:0 auto; padding:0 44px; }
+ .sec-label {
+ font-size:9px; letter-spacing:.55em; color:var(--gold);
+ font-family:Georgia,serif; text-transform:uppercase; margin-bottom:14px;
+ display:flex; align-items:center; gap:12px;
+ }
+ .sec-label::after { content:''; width:40px; height:1px; background:var(--gold); opacity:.45; }
+ .sec-title { font-size:clamp(26px,3.6vw,42px); font-weight:300; letter-spacing:.16em; line-height:1.45; }
 
-    /* ===== STORY ===== */
-    .story { background:var(--dark); }
-    .story-grid { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; }
-    .story-img-wrap { position:relative; aspect-ratio:4/5; overflow:hidden; }
-    .story-img-wrap img { width:100%; height:100%; object-fit:cover; }
-    .story-badge {
-      position:absolute; bottom:28px; left:-20px;
-      background:var(--black); border:1px solid rgba(200,169,90,.5);
-      padding:18px 24px; text-align:center; min-width:110px;
-    }
-    .story-badge .num { font-size:34px; color:var(--gold); line-height:1; font-weight:300; }
-    .story-badge .num-sub { font-size:9px; letter-spacing:.22em; color:var(--text-muted); font-family:'Hiragino Kaku Gothic ProN',sans-serif; margin-top:4px; }
-    .story-text { display:flex; flex-direction:column; gap:26px; }
-    .story-body { font-size:15px; line-height:2.3; color:var(--text-dim); }
-    .story-tags { display:flex; gap:10px; flex-wrap:wrap; }
-    .tag { border:1px solid rgba(200,169,90,.35); padding:6px 14px; font-size:10px; letter-spacing:.18em; color:var(--gold); font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
+ /* ===== STORY ===== */
+ .story { background:var(--dark); }
+ .story-grid { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; }
+ .story-img-wrap { position:relative; aspect-ratio:4/5; overflow:hidden; }
+ .story-img-wrap img { width:100%; height:100%; object-fit:cover; }
+ .story-badge {
+ position:absolute; bottom:28px; left:-20px;
+ background:var(--black); border:1px solid rgba(200,169,90,.5);
+ padding:18px 24px; text-align:center; min-width:110px;
+ }
+ .story-badge .num { font-size:34px; color:var(--gold); line-height:1; font-weight:300; }
+ .story-badge .num-sub { font-size:9px; letter-spacing:.22em; color:var(--text-muted); font-family:'Hiragino Kaku Gothic ProN',sans-serif; margin-top:4px; }
+ .story-text { display:flex; flex-direction:column; gap:26px; }
+ .story-body { font-size:15px; line-height:2.3; color:var(--text-dim); }
+ .story-tags { display:flex; gap:10px; flex-wrap:wrap; }
+ .tag { border:1px solid rgba(200,169,90,.35); padding:6px 14px; font-size:10px; letter-spacing:.18em; color:var(--gold); font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
 
-    /* ===== MENU ===== */
-    .menu-sec { background:var(--smoke); }
-    .menu-head { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:48px; }
-    .all-link { font-size:11px; letter-spacing:.22em; color:var(--amber); text-decoration:none; font-family:'Hiragino Kaku Gothic ProN',sans-serif; display:flex; align-items:center; gap:6px; }
-    .all-link:hover { color:var(--amber-lt); }
+ /* ===== MENU ===== */
+ .menu-sec { background:var(--smoke); }
+ .menu-head { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:48px; }
+ .all-link { font-size:11px; letter-spacing:.22em; color:var(--amber); text-decoration:none; font-family:'Hiragino Kaku Gothic ProN',sans-serif; display:flex; align-items:center; gap:6px; }
+ .all-link:hover { color:var(--amber-lt); }
 
-    /* メニュータブ */
-    .menu-tabs { display:flex; gap:0; margin-bottom:36px; border-bottom:1px solid rgba(255,255,255,.1); }
-    .menu-tab {
-      padding:12px 28px; font-size:12px; letter-spacing:.18em; cursor:pointer;
-      color:var(--text-muted); font-family:'Hiragino Kaku Gothic ProN',sans-serif;
-      border-bottom:2px solid transparent; transition:all .25s; margin-bottom:-1px;
-    }
-    .menu-tab.active { color:var(--amber); border-bottom-color:var(--amber); }
-    .menu-tab:hover { color:#fff; }
+ /* メニュータブ */
+ .menu-tabs { display:flex; gap:0; margin-bottom:36px; border-bottom:1px solid rgba(255,255,255,.1); }
+ .menu-tab {
+ padding:12px 28px; font-size:12px; letter-spacing:.18em; cursor:pointer;
+ color:var(--text-muted); font-family:'Hiragino Kaku Gothic ProN',sans-serif;
+ border-bottom:2px solid transparent; transition:all .25s; margin-bottom:-1px;
+ }
+ .menu-tab.active { color:var(--amber); border-bottom-color:var(--amber); }
+ .menu-tab:hover { color:#fff; }
 
-    /* 大カード（看板メニュー）*/
-    .menu-hero-grid { display:grid; grid-template-columns:1fr 1fr; gap:3px; margin-bottom:3px; }
-    .menu-card-lg { position:relative; aspect-ratio:16/9; overflow:hidden; cursor:pointer; }
-    .menu-card-lg img { width:100%; height:100%; object-fit:cover; transition:transform .7s ease; }
-    .menu-card-lg:hover img { transform:scale(1.06); }
+ /* 大カード（看板メニュー）*/
+ .menu-hero-grid { display:grid; grid-template-columns:1fr 1fr; gap:3px; margin-bottom:3px; }
+ .menu-card-lg { position:relative; aspect-ratio:16/9; overflow:hidden; cursor:pointer; }
+ .menu-card-lg img { width:100%; height:100%; object-fit:cover; transition:transform .7s ease; }
+ .menu-card-lg:hover img { transform:scale(1.06); }
 
-    .menu-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; }
-    .menu-card { position:relative; overflow:hidden; cursor:pointer; }
-    .menu-card img { width:100%; height:100%; object-fit:cover; transition:transform .7s ease; display:block; }
-    .menu-card:hover img { transform:scale(1.07); }
+ .menu-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; }
+ .menu-card { position:relative; overflow:hidden; cursor:pointer; }
+ .menu-card img { width:100%; height:100%; object-fit:cover; transition:transform .7s ease; display:block; }
+ .menu-card:hover img { transform:scale(1.07); }
 
-    .menu-overlay {
-      position:absolute; inset:0;
-      background:linear-gradient(180deg,transparent 25%, rgba(20,16,12,.88) 100%);
-      display:flex; flex-direction:column; justify-content:flex-end; padding:22px;
-    }
-    .menu-badge {
-      position:absolute; top:14px; left:14px;
-      background:var(--amber); color:#fff;
-      font-size:9px; letter-spacing:.2em; padding:5px 12px;
-      font-family:'Hiragino Kaku Gothic ProN',sans-serif; font-weight:700;
-    }
-    .menu-badge.new { background:var(--warm-red); }
-    .menu-cat { font-size:9px; letter-spacing:.35em; color:var(--amber); margin-bottom:6px; font-family:Georgia,serif; }
-    .menu-name { font-size:20px; letter-spacing:.1em; line-height:1.3; }
-    .menu-price {
-      display:inline-flex; align-items:baseline; gap:4px; margin-top:6px;
-    }
-    .menu-price .yen { font-size:11px; color:var(--amber-lt); font-family:Georgia,serif; }
-    .menu-price .num { font-size:22px; color:var(--amber-lt); font-family:Georgia,serif; line-height:1; }
-    .menu-price .tax { font-size:10px; color:var(--text-muted); font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
-    .menu-desc {
-      font-size:12px; line-height:1.8; color:rgba(255,255,255,.6); margin-top:8px;
-      max-height:0; overflow:hidden; transition:max-height .4s;
-      font-family:'Hiragino Kaku Gothic ProN',sans-serif;
-    }
-    .menu-card:hover .menu-desc,
-    .menu-card-lg:hover .menu-desc { max-height:80px; }
+ .menu-overlay {
+ position:absolute; inset:0;
+ background:linear-gradient(180deg,transparent 25%, rgba(20,16,12,.88) 100%);
+ display:flex; flex-direction:column; justify-content:flex-end; padding:22px;
+ }
+ .menu-badge {
+ position:absolute; top:14px; left:14px;
+ background:var(--amber); color:#fff;
+ font-size:9px; letter-spacing:.2em; padding:5px 12px;
+ font-family:'Hiragino Kaku Gothic ProN',sans-serif; font-weight:700;
+ }
+ .menu-badge.new { background:var(--warm-red); }
+ .menu-cat { font-size:9px; letter-spacing:.35em; color:var(--amber); margin-bottom:6px; font-family:Georgia,serif; }
+ .menu-name { font-size:20px; letter-spacing:.1em; line-height:1.3; }
+ .menu-price {
+ display:inline-flex; align-items:baseline; gap:4px; margin-top:6px;
+ }
+ .menu-price .yen { font-size:11px; color:var(--amber-lt); font-family:Georgia,serif; }
+ .menu-price .num { font-size:22px; color:var(--amber-lt); font-family:Georgia,serif; line-height:1; }
+ .menu-price .tax { font-size:10px; color:var(--text-muted); font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
+ .menu-desc {
+ font-size:12px; line-height:1.8; color:rgba(255,255,255,.6); margin-top:8px;
+ max-height:0; overflow:hidden; transition:max-height .4s;
+ font-family:'Hiragino Kaku Gothic ProN',sans-serif;
+ }
+ .menu-card:hover .menu-desc,
+ .menu-card-lg:hover .menu-desc { max-height:80px; }
 
-    /* ===== TAB PANEL ===== */
-    .tab-panel { animation: fadein .35s ease; }
+ /* ===== TAB PANEL ===== */
+ .tab-panel { animation: fadein .35s ease; }
 
-    /* ドリンク */
-    .drink-intro { text-align:center; padding:16px 0 28px; font-size:14px; color:var(--text-muted); font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
-    .drink-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-    .drink-card {
-      display:flex; gap:16px; align-items:flex-start;
-      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08);
-      padding:20px; border-radius:2px; transition:border-color .25s;
-    }
-    .drink-card:hover { border-color:rgba(232,137,42,.4); }
-    .drink-icon { font-size:28px; flex-shrink:0; }
-    .drink-cat { font-size:9px; letter-spacing:.25em; color:var(--amber); font-family:Georgia,serif; margin-bottom:6px; }
-    .drink-name { font-size:16px; letter-spacing:.06em; margin-bottom:6px; }
-    .drink-price { font-size:13px; color:var(--amber-lt); font-family:Georgia,serif; margin-bottom:8px; }
-    .drink-price span { font-size:20px; }
-    .drink-desc { font-size:12px; line-height:1.75; color:var(--text-muted); font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
-    .drink-note {
-      margin-top:24px; background:rgba(232,137,42,.08); border:1px solid rgba(232,137,42,.25);
-      padding:16px 20px; font-size:13px; color:rgba(255,255,255,.7);
-      display:flex; align-items:center; gap:12px; font-family:'Hiragino Kaku Gothic ProN',sans-serif;
-    }
-    .drink-note a { color:var(--amber); text-decoration:none; margin-left:auto; font-size:12px; white-space:nowrap; }
+ /* ドリンク */
+ .drink-intro { text-align:center; padding:16px 0 28px; font-size:14px; color:var(--text-muted); font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
+ .drink-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+ .drink-card {
+ display:flex; gap:16px; align-items:flex-start;
+ background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08);
+ padding:20px; border-radius:2px; transition:border-color .25s;
+ }
+ .drink-card:hover { border-color:rgba(232,137,42,.4); }
+ .drink-icon { font-size:28px; flex-shrink:0; }
+ .drink-cat { font-size:9px; letter-spacing:.25em; color:var(--amber); font-family:Georgia,serif; margin-bottom:6px; }
+ .drink-name { font-size:16px; letter-spacing:.06em; margin-bottom:6px; }
+ .drink-price { font-size:13px; color:var(--amber-lt); font-family:Georgia,serif; margin-bottom:8px; }
+ .drink-price span { font-size:20px; }
+ .drink-desc { font-size:12px; line-height:1.75; color:var(--text-muted); font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
+ .drink-note {
+ margin-top:24px; background:rgba(232,137,42,.08); border:1px solid rgba(232,137,42,.25);
+ padding:16px 20px; font-size:13px; color:rgba(255,255,255,.7);
+ display:flex; align-items:center; gap:12px; font-family:'Hiragino Kaku Gothic ProN',sans-serif;
+ }
+ .drink-note a { color:var(--amber); text-decoration:none; margin-left:auto; font-size:12px; white-space:nowrap; }
 
-    /* 宴会コース */
-    .course-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
-    .course-card {
-      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.1);
-      padding:28px; border-radius:2px; position:relative; transition:border-color .3s;
-    }
-    .course-card:hover { border-color:rgba(232,137,42,.5); }
-    .course-badge {
-      position:absolute; top:-1px; left:24px;
-      background:var(--amber); color:#fff; font-size:10px; font-weight:700;
-      padding:4px 12px; font-family:'Hiragino Kaku Gothic ProN',sans-serif;
-    }
-    .course-badge.premium { background:var(--gold); color:var(--black); }
-    .course-header { margin-top:16px; margin-bottom:14px; }
-    .course-name { font-size:18px; letter-spacing:.06em; margin-bottom:8px; }
-    .course-price { font-size:13px; color:var(--amber-lt); font-family:Georgia,serif; }
-    .course-price span { font-size:28px; }
-    .course-meta { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:16px; padding-bottom:16px; border-bottom:1px solid rgba(255,255,255,.08); }
-    .course-meta span { font-size:11px; color:var(--text-muted); font-family:'Hiragino Kaku Gothic ProN',sans-serif; background:rgba(255,255,255,.05); padding:4px 10px; }
-    .course-items { list-style:none; display:flex; flex-direction:column; gap:10px; }
-    .course-items li { font-size:13px; color:rgba(255,255,255,.75); font-family:'Hiragino Kaku Gothic ProN',sans-serif; line-height:1.5; }
-    .course-note { margin-top:20px; display:flex; flex-direction:column; gap:10px; }
-    .course-note-item { font-size:13px; color:var(--text-muted); font-family:'Hiragino Kaku Gothic ProN',sans-serif; background:rgba(255,255,255,.03); padding:12px 16px; border-left:3px solid var(--amber); }
+ /* 宴会コース */
+ .course-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+ .course-card {
+ background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.1);
+ padding:28px; border-radius:2px; position:relative; transition:border-color .3s;
+ }
+ .course-card:hover { border-color:rgba(232,137,42,.5); }
+ .course-badge {
+ position:absolute; top:-1px; left:24px;
+ background:var(--amber); color:#fff; font-size:10px; font-weight:700;
+ padding:4px 12px; font-family:'Hiragino Kaku Gothic ProN',sans-serif;
+ }
+ .course-badge.premium { background:var(--gold); color:var(--black); }
+ .course-header { margin-top:16px; margin-bottom:14px; }
+ .course-name { font-size:18px; letter-spacing:.06em; margin-bottom:8px; }
+ .course-price { font-size:13px; color:var(--amber-lt); font-family:Georgia,serif; }
+ .course-price span { font-size:28px; }
+ .course-meta { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:16px; padding-bottom:16px; border-bottom:1px solid rgba(255,255,255,.08); }
+ .course-meta span { font-size:11px; color:var(--text-muted); font-family:'Hiragino Kaku Gothic ProN',sans-serif; background:rgba(255,255,255,.05); padding:4px 10px; }
+ .course-items { list-style:none; display:flex; flex-direction:column; gap:10px; }
+ .course-items li { font-size:13px; color:rgba(255,255,255,.75); font-family:'Hiragino Kaku Gothic ProN',sans-serif; line-height:1.5; }
+ .course-note { margin-top:20px; display:flex; flex-direction:column; gap:10px; }
+ .course-note-item { font-size:13px; color:var(--text-muted); font-family:'Hiragino Kaku Gothic ProN',sans-serif; background:rgba(255,255,255,.03); padding:12px 16px; border-left:3px solid var(--amber); }
 
-    /* テイクアウト */
-    .takeout-intro { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; margin-bottom:32px; }
-    .takeout-intro-text h3 { font-size:22px; letter-spacing:.08em; margin-bottom:14px; }
-    .takeout-intro-text p { font-size:13px; line-height:2; color:var(--text-dim); font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
-    .takeout-services { display:flex; gap:20px; margin-top:20px; }
-    .takeout-service { display:flex; align-items:center; gap:8px; font-size:12px; color:var(--amber); font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
-    .takeout-service img { height:24px; filter:brightness(0) saturate(100%) invert(60%) sepia(70%) saturate(600%) hue-rotate(5deg); }
-    .takeout-img { width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:2px; }
-    .takeout-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; margin-bottom:28px; }
-    .takeout-item {
-      background:rgba(255,255,255,.04); padding:20px;
-      border:1px solid rgba(255,255,255,.07); transition:border-color .25s;
-    }
-    .takeout-item:hover { border-color:rgba(232,137,42,.4); }
-    .takeout-name { font-size:14px; letter-spacing:.04em; margin-bottom:8px; }
-    .takeout-price { font-size:12px; color:var(--amber-lt); font-family:Georgia,serif; margin-bottom:6px; }
-    .takeout-price span { font-size:20px; }
-    .takeout-desc { font-size:11px; line-height:1.7; color:var(--text-muted); font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
-    .takeout-cta { text-align:center; display:flex; flex-direction:column; align-items:center; gap:12px; }
-    .takeout-cta p { font-size:11px; color:var(--text-muted); font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
+ /* テイクアウト */
+ .takeout-intro { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; margin-bottom:32px; }
+ .takeout-intro-text h3 { font-size:22px; letter-spacing:.08em; margin-bottom:14px; }
+ .takeout-intro-text p { font-size:13px; line-height:2; color:var(--text-dim); font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
+ .takeout-services { display:flex; gap:20px; margin-top:20px; }
+ .takeout-service { display:flex; align-items:center; gap:8px; font-size:12px; color:var(--amber); font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
+ .takeout-service img { height:24px; filter:brightness(0) saturate(100%) invert(60%) sepia(70%) saturate(600%) hue-rotate(5deg); }
+ .takeout-img { width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:2px; }
+ .takeout-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; margin-bottom:28px; }
+ .takeout-item {
+ background:rgba(255,255,255,.04); padding:20px;
+ border:1px solid rgba(255,255,255,.07); transition:border-color .25s;
+ }
+ .takeout-item:hover { border-color:rgba(232,137,42,.4); }
+ .takeout-name { font-size:14px; letter-spacing:.04em; margin-bottom:8px; }
+ .takeout-price { font-size:12px; color:var(--amber-lt); font-family:Georgia,serif; margin-bottom:6px; }
+ .takeout-price span { font-size:20px; }
+ .takeout-desc { font-size:11px; line-height:1.7; color:var(--text-muted); font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
+ .takeout-cta { text-align:center; display:flex; flex-direction:column; align-items:center; gap:12px; }
+ .takeout-cta p { font-size:11px; color:var(--text-muted); font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
 
-    /* モバイル タブコンテンツ */
-    @media(max-width:768px){
-      .drink-grid { grid-template-columns:1fr; gap:12px; }
-      .drink-card { padding:14px; }
-      .course-grid { grid-template-columns:1fr; gap:16px; }
-      .course-card { padding:20px; }
-      .course-meta { gap:6px; }
-      .takeout-intro { grid-template-columns:1fr; gap:20px; }
-      .takeout-img { aspect-ratio:16/9; }
-      .takeout-grid { grid-template-columns:1fr 1fr; }
-      .takeout-item { padding:14px; }
-    }
+ /* モバイル タブコンテンツ */
+ @media(max-width:768px){
+ .drink-grid { grid-template-columns:1fr; gap:12px; }
+ .drink-card { padding:14px; }
+ .course-grid { grid-template-columns:1fr; gap:16px; }
+ .course-card { padding:20px; }
+ .course-meta { gap:6px; }
+ .takeout-intro { grid-template-columns:1fr; gap:20px; }
+ .takeout-img { aspect-ratio:16/9; }
+ .takeout-grid { grid-template-columns:1fr 1fr; }
+ .takeout-item { padding:14px; }
+ }
 
-    /* ===== KODAWARI ===== */
-    .kodawari { background:var(--dark); }
-    .kodawari-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:52px; }
-    .kodawari-item { position:relative; aspect-ratio:1/1; overflow:hidden; }
-    .kodawari-item img { width:100%; height:100%; object-fit:cover; transition:transform .6s; }
-    .kodawari-item:hover img { transform:scale(1.06); }
-    .kodawari-text {
-      position:absolute; inset:0; padding:28px;
-      background:linear-gradient(180deg,rgba(14,14,14,.1) 0%,rgba(14,14,14,.75) 100%);
-      display:flex; flex-direction:column; justify-content:flex-end;
-    }
-    .kodawari-num { font-size:9px; letter-spacing:.4em; color:var(--gold); margin-bottom:8px; font-family:Georgia,serif; }
-    .kodawari-title { font-size:18px; letter-spacing:.12em; }
-    .kodawari-body { font-size:12px; line-height:1.8; color:rgba(255,255,255,.6); margin-top:8px; font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
+ /* ===== KODAWARI ===== */
+ .kodawari { background:var(--dark); }
+ .kodawari-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:52px; }
+ .kodawari-item { position:relative; aspect-ratio:1/1; overflow:hidden; }
+ .kodawari-item img { width:100%; height:100%; object-fit:cover; transition:transform .6s; }
+ .kodawari-item:hover img { transform:scale(1.06); }
+ .kodawari-text {
+ position:absolute; inset:0; padding:28px;
+ background:linear-gradient(180deg,rgba(14,14,14,.1) 0%,rgba(14,14,14,.75) 100%);
+ display:flex; flex-direction:column; justify-content:flex-end;
+ }
+ .kodawari-num { font-size:9px; letter-spacing:.4em; color:var(--gold); margin-bottom:8px; font-family:Georgia,serif; }
+ .kodawari-title { font-size:18px; letter-spacing:.12em; }
+ .kodawari-body { font-size:12px; line-height:1.8; color:rgba(255,255,255,.6); margin-top:8px; font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
 
-    /* ===== SEAT / シーン ===== */
-    .scene { background:var(--smoke); }
-    .scene-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:48px; }
-    .scene-card { position:relative; aspect-ratio:4/3; overflow:hidden; cursor:pointer; }
-    .scene-card img { width:100%; height:100%; object-fit:cover; transition:transform .6s; }
-    .scene-card:hover img { transform:scale(1.08); }
-    .scene-mask {
-      position:absolute; inset:0; background:rgba(14,14,14,.42);
-      display:flex; align-items:flex-end; padding:20px;
-      transition:background .3s;
-    }
-    .scene-card:hover .scene-mask { background:rgba(14,14,14,.22); }
-    .scene-name { font-size:14px; letter-spacing:.2em; text-shadow:0 2px 8px rgba(0,0,0,.6); }
+ /* ===== SEAT / シーン ===== */
+ .scene { background:var(--smoke); }
+ .scene-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:48px; }
+ .scene-card { position:relative; aspect-ratio:4/3; overflow:hidden; cursor:pointer; }
+ .scene-card img { width:100%; height:100%; object-fit:cover; transition:transform .6s; }
+ .scene-card:hover img { transform:scale(1.08); }
+ .scene-mask {
+ position:absolute; inset:0; background:rgba(14,14,14,.42);
+ display:flex; align-items:flex-end; padding:20px;
+ transition:background .3s;
+ }
+ .scene-card:hover .scene-mask { background:rgba(14,14,14,.22); }
+ .scene-name { font-size:14px; letter-spacing:.2em; text-shadow:0 2px 8px rgba(0,0,0,.6); }
 
-    /* ===== NEWS ===== */
-    .news-sec { background:var(--dark); }
-    .news-list { margin-top:44px; }
-    .news-row {
-      display:grid; grid-template-columns:100px 90px 1fr 20px;
-      gap:24px; align-items:center; padding:20px 0;
-      border-bottom:1px solid rgba(255,255,255,.07);
-      text-decoration:none; color:#fff; transition:padding-left .25s;
-    }
-    .news-row:hover { padding-left:6px; }
-    .news-date { font-size:12px; color:var(--text-muted); font-family:Georgia,serif; letter-spacing:.06em; }
-    .news-cat { font-size:9px; letter-spacing:.18em; color:var(--gold); border:1px solid rgba(200,169,90,.35); padding:4px 10px; font-family:'Hiragino Kaku Gothic ProN',sans-serif; text-align:center; }
-    .news-ttl { font-size:13px; letter-spacing:.07em; color:rgba(255,255,255,.8); font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
-    .news-arr { color:var(--gold); font-size:14px; opacity:.5; transition:opacity .25s; }
-    .news-row:hover .news-arr { opacity:1; }
+ /* ===== NEWS ===== */
+ .news-sec { background:var(--dark); }
+ .news-list { margin-top:44px; }
+ .news-row {
+ display:grid; grid-template-columns:100px 90px 1fr 20px;
+ gap:24px; align-items:center; padding:20px 0;
+ border-bottom:1px solid rgba(255,255,255,.07);
+ text-decoration:none; color:#fff; transition:padding-left .25s;
+ }
+ .news-row:hover { padding-left:6px; }
+ .news-date { font-size:12px; color:var(--text-muted); font-family:Georgia,serif; letter-spacing:.06em; }
+ .news-cat { font-size:9px; letter-spacing:.18em; color:var(--gold); border:1px solid rgba(200,169,90,.35); padding:4px 10px; font-family:'Hiragino Kaku Gothic ProN',sans-serif; text-align:center; }
+ .news-ttl { font-size:13px; letter-spacing:.07em; color:rgba(255,255,255,.8); font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
+ .news-arr { color:var(--gold); font-size:14px; opacity:.5; transition:opacity .25s; }
+ .news-row:hover .news-arr { opacity:1; }
 
-    /* ===== BLOG ===== */
-    .blog-sec { background:var(--dark); }
-    .blog-head { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:48px; }
-    .blog-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
-    .blog-card { display:flex; flex-direction:column; text-decoration:none; color:#fff; }
-    .blog-thumb { aspect-ratio:16/9; overflow:hidden; position:relative; }
-    .blog-thumb img { width:100%; height:100%; object-fit:cover; transition:transform .6s; }
-    .blog-card:hover .blog-thumb img { transform:scale(1.06); }
-    .blog-cat { position:absolute; top:14px; left:14px; background:var(--gold); color:var(--black); font-size:9px; letter-spacing:.2em; padding:4px 10px; font-family:'Hiragino Kaku Gothic ProN',sans-serif; font-weight:700; }
-    .blog-body { padding:20px 0 0; display:flex; flex-direction:column; gap:8px; }
-    .blog-date { font-size:10px; letter-spacing:.18em; color:var(--text-muted); font-family:Georgia,serif; }
-    .blog-ttl { font-size:15px; letter-spacing:.08em; line-height:1.7; color:rgba(255,255,255,.85); transition:color .25s; }
-    .blog-card:hover .blog-ttl { color:var(--gold); }
-    .blog-excerpt { font-size:12px; line-height:1.9; color:var(--text-muted); font-family:'Hiragino Kaku Gothic ProN',sans-serif; margin-top:4px; }
-    .blog-readmore { font-size:10px; letter-spacing:.22em; color:var(--gold); font-family:Georgia,serif; margin-top:12px; display:flex; align-items:center; gap:8px; }
-    .blog-readmore::after { content:''; display:block; width:24px; height:1px; background:var(--gold); transition:width .3s; }
-    .blog-card:hover .blog-readmore::after { width:40px; }
+ /* ===== BLOG ===== */
+ .blog-sec { background:var(--dark); }
+ .blog-head { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:48px; }
+ .blog-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+ .blog-card { display:flex; flex-direction:column; text-decoration:none; color:#fff; }
+ .blog-thumb { aspect-ratio:16/9; overflow:hidden; position:relative; }
+ .blog-thumb img { width:100%; height:100%; object-fit:cover; transition:transform .6s; }
+ .blog-card:hover .blog-thumb img { transform:scale(1.06); }
+ .blog-cat { position:absolute; top:14px; left:14px; background:var(--gold); color:var(--black); font-size:9px; letter-spacing:.2em; padding:4px 10px; font-family:'Hiragino Kaku Gothic ProN',sans-serif; font-weight:700; }
+ .blog-body { padding:20px 0 0; display:flex; flex-direction:column; gap:8px; }
+ .blog-date { font-size:10px; letter-spacing:.18em; color:var(--text-muted); font-family:Georgia,serif; }
+ .blog-ttl { font-size:15px; letter-spacing:.08em; line-height:1.7; color:rgba(255,255,255,.85); transition:color .25s; }
+ .blog-card:hover .blog-ttl { color:var(--gold); }
+ .blog-excerpt { font-size:12px; line-height:1.9; color:var(--text-muted); font-family:'Hiragino Kaku Gothic ProN',sans-serif; margin-top:4px; }
+ .blog-readmore { font-size:10px; letter-spacing:.22em; color:var(--gold); font-family:Georgia,serif; margin-top:12px; display:flex; align-items:center; gap:8px; }
+ .blog-readmore::after { content:''; display:block; width:24px; height:1px; background:var(--gold); transition:width .3s; }
+ .blog-card:hover .blog-readmore::after { width:40px; }
 
-    /* ===== INSTAGRAM ===== */
-    .insta-sec { background:var(--smoke); }
-    .insta-head { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:36px; }
-    .insta-follow { display:flex; align-items:center; gap:8px; color:var(--gold); text-decoration:none; font-size:11px; letter-spacing:.2em; font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
-    /* Instagram実埋め込み用ラッパー */
-    .insta-embed-wrap {
-      display:grid; grid-template-columns:repeat(6,1fr); gap:3px;
-    }
-    .insta-embed-wrap .sbi_item {
-      aspect-ratio:1; overflow:hidden;
-    }
-    /* フォールバック（プレビュー用） */
-    .insta-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:3px; }
-    .insta-cell { aspect-ratio:1; overflow:hidden; position:relative; }
-    .insta-cell img { width:100%; height:100%; object-fit:cover; transition:transform .5s; }
-    .insta-cell:hover img { transform:scale(1.1); }
-    .insta-hover { position:absolute; inset:0; background:rgba(14,14,14,.5); display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .3s; font-size:22px; }
-    .insta-cell:hover .insta-hover { opacity:1; }
-    .insta-note { margin-top:14px; font-size:11px; color:var(--text-muted); text-align:center; letter-spacing:.1em; font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
+ /* ===== INSTAGRAM ===== */
+ .insta-sec { background:var(--smoke); }
+ .insta-head { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:36px; }
+ .insta-follow { display:flex; align-items:center; gap:8px; color:var(--gold); text-decoration:none; font-size:11px; letter-spacing:.2em; font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
+ /* Instagram実埋め込み用ラッパー */
+ .insta-embed-wrap {
+ display:grid; grid-template-columns:repeat(6,1fr); gap:3px;
+ }
+ .insta-embed-wrap .sbi_item {
+ aspect-ratio:1; overflow:hidden;
+ }
+ /* フォールバック（プレビュー用） */
+ .insta-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:3px; }
+ .insta-cell { aspect-ratio:1; overflow:hidden; position:relative; }
+ .insta-cell img { width:100%; height:100%; object-fit:cover; transition:transform .5s; }
+ .insta-cell:hover img { transform:scale(1.1); }
+ .insta-hover { position:absolute; inset:0; background:rgba(14,14,14,.5); display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .3s; font-size:22px; }
+ .insta-cell:hover .insta-hover { opacity:1; }
+ .insta-note { margin-top:14px; font-size:11px; color:var(--text-muted); text-align:center; letter-spacing:.1em; font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
 
-    /* ===== RESERVE CTA ===== */
-    .reserve-cta {
-      background:var(--black);
-      border-top:1px solid rgba(200,169,90,.15);
-      padding:100px 0; text-align:center;
-    }
-    .reserve-cta h2 { font-size:clamp(26px,3.8vw,46px); font-weight:300; letter-spacing:.2em; margin-bottom:16px; }
-    .reserve-cta p { font-size:13px; color:var(--text-muted); letter-spacing:.15em; margin-bottom:48px; font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
-    .reserve-services { display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
-    .r-service {
-      border:1px solid rgba(255,255,255,.18); padding:20px 36px;
-      text-decoration:none; color:#fff; text-align:center; min-width:160px;
-      transition:border-color .25s, background .25s;
-    }
-    .r-service:hover { border-color:var(--gold); background:rgba(200,169,90,.06); }
-    .r-service .svc-name { font-size:15px; letter-spacing:.1em; margin-bottom:4px; }
-    .r-service .svc-sub { font-size:9px; color:var(--text-muted); letter-spacing:.18em; font-family:Georgia,serif; }
-    .r-service.highlight { border-color:rgba(200,169,90,.5); background:rgba(200,169,90,.08); }
-    .r-service.highlight .svc-name { color:var(--gold); }
+ /* ===== RESERVE CTA ===== */
+ .reserve-cta {
+ background:var(--black);
+ border-top:1px solid rgba(200,169,90,.15);
+ padding:100px 0; text-align:center;
+ }
+ .reserve-cta h2 { font-size:clamp(26px,3.8vw,46px); font-weight:300; letter-spacing:.2em; margin-bottom:16px; }
+ .reserve-cta p { font-size:13px; color:var(--text-muted); letter-spacing:.15em; margin-bottom:48px; font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
+ .reserve-services { display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
+ .r-service {
+ border:1px solid rgba(255,255,255,.18); padding:20px 36px;
+ text-decoration:none; color:#fff; text-align:center; min-width:160px;
+ transition:border-color .25s, background .25s;
+ }
+ .r-service:hover { border-color:var(--gold); background:rgba(200,169,90,.06); }
+ .r-service .svc-name { font-size:15px; letter-spacing:.1em; margin-bottom:4px; }
+ .r-service .svc-sub { font-size:9px; color:var(--text-muted); letter-spacing:.18em; font-family:Georgia,serif; }
+ .r-service.highlight { border-color:rgba(200,169,90,.5); background:rgba(200,169,90,.08); }
+ .r-service.highlight .svc-name { color:var(--gold); }
 
-    /* ===== FOOTER ===== */
-    footer { background:var(--black); padding:72px 0 36px; border-top:1px solid rgba(200,169,90,.12); }
-    .footer-grid { display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:52px; padding-bottom:52px; border-bottom:1px solid rgba(255,255,255,.07); }
-    .footer-brand-logo { height:32px; margin-bottom:18px; }
-    .footer-brand p { font-size:12px; line-height:2; color:var(--text-muted); font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
-    .footer-col h4 { font-size:10px; letter-spacing:.3em; color:var(--gold); margin-bottom:18px; font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
-    .footer-col ul { list-style:none; display:flex; flex-direction:column; gap:11px; }
-    .footer-col ul li a { font-size:12px; color:var(--text-muted); text-decoration:none; letter-spacing:.08em; font-family:'Hiragino Kaku Gothic ProN',sans-serif; transition:color .25s; }
-    .footer-col ul li a:hover { color:#fff; }
-    .footer-bottom { display:flex; justify-content:space-between; align-items:center; padding-top:28px; }
-    .footer-copy { font-size:10px; color:rgba(255,255,255,.22); letter-spacing:.1em; font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
-    .footer-sns { display:flex; gap:12px; }
-    .f-sns { width:34px; height:34px; border:1px solid rgba(255,255,255,.14); display:flex; align-items:center; justify-content:center; text-decoration:none; color:var(--text-muted); font-size:13px; transition:border-color .25s, color .25s; }
-    .f-sns:hover { border-color:var(--gold); color:var(--gold); }
+ /* ===== FOOTER ===== */
+ footer { background:var(--black); padding:72px 0 36px; border-top:1px solid rgba(200,169,90,.12); }
+ .footer-grid { display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:52px; padding-bottom:52px; border-bottom:1px solid rgba(255,255,255,.07); }
+ .footer-brand-logo { height:32px; margin-bottom:18px; }
+ .footer-brand p { font-size:12px; line-height:2; color:var(--text-muted); font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
+ .footer-col h4 { font-size:10px; letter-spacing:.3em; color:var(--gold); margin-bottom:18px; font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
+ .footer-col ul { list-style:none; display:flex; flex-direction:column; gap:11px; }
+ .footer-col ul li a { font-size:12px; color:var(--text-muted); text-decoration:none; letter-spacing:.08em; font-family:'Hiragino Kaku Gothic ProN',sans-serif; transition:color .25s; }
+ .footer-col ul li a:hover { color:#fff; }
+ .footer-bottom { display:flex; justify-content:space-between; align-items:center; padding-top:28px; }
+ .footer-copy { font-size:10px; color:rgba(255,255,255,.22); letter-spacing:.1em; font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
+ .footer-sns { display:flex; gap:12px; }
+ .f-sns { width:34px; height:34px; border:1px solid rgba(255,255,255,.14); display:flex; align-items:center; justify-content:center; text-decoration:none; color:var(--text-muted); font-size:13px; transition:border-color .25s, color .25s; }
+ .f-sns:hover { border-color:var(--gold); color:var(--gold); }
 
-    /* ===== ANIM ===== */
-    @keyframes fadein { from{opacity:0} to{opacity:1} }
-    @keyframes fadeup { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
-    .reveal { opacity:0; transform:translateY(28px); transition:opacity .8s ease, transform .8s ease; }
-    .reveal.in { opacity:1; transform:translateY(0); }
+ /* ===== ANIM ===== */
+ @keyframes fadein { from{opacity:0} to{opacity:1} }
+ @keyframes fadeup { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+ .reveal { opacity:0; transform:translateY(28px); transition:opacity .8s ease, transform .8s ease; }
+ .reveal.in { opacity:1; transform:translateY(0); }
 
-    /* ========== ハンバーガーボタン（デフォルト非表示） ========== */
-    .mobile-menu-btn { display: none; }
-    .mobile-nav { display: none; }
+ /* ========== ハンバーガーボタン（デフォルト非表示） ========== */
+ .mobile-menu-btn { display: none; }
+ .mobile-nav { display: none; }
 
-    /* ========== MOBILE ========== */
-    @media (max-width: 768px) {
+ /* ========== MOBILE ========== */
+ @media (max-width: 768px) {
 
-      /* ── Header ── */
-      header { padding: 14px 20px !important; }
-      header nav { display: none !important; }
-      .mobile-menu-btn {
-        display: flex !important; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px;
-      }
-      .mobile-menu-btn span { display: block; width: 24px; height: 2px; background: #fff; }
+ /* ── Header ── */
+ header { padding: 14px 20px !important; }
+ header nav { display: none !important; }
+ .mobile-menu-btn {
+ display: flex !important; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px;
+ }
+ .mobile-menu-btn span { display: block; width: 24px; height: 2px; background: #fff; }
 
-      /* ── モバイルメニュー ── */
-      .mobile-nav {
-        position: fixed; inset: 0; background: rgba(14,14,14,.97);
-        z-index: 150; flex-direction: column; align-items: center; justify-content: center; gap: 32px;
-      }
-      .mobile-nav.open { display: flex !important; }
-      .mobile-nav a { color: #fff; text-decoration: none; font-size: 18px; letter-spacing: .08em; font-family: 'Hiragino Kaku Gothic ProN', sans-serif; }
-      .mobile-nav .btn-reserve { background: var(--amber); color: #fff !important; padding: 14px 40px; font-size: 15px; font-weight: 700; border-radius: 2px; }
-      .mobile-nav-close { position: absolute; top: 20px; right: 20px; font-size: 28px; color: #fff; cursor: pointer; background: none; border: none; }
+ /* ── モバイルメニュー ── */
+ .mobile-nav {
+ position: fixed; inset: 0; background: rgba(14,14,14,.97);
+ z-index: 150; flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+ }
+ .mobile-nav.open { display: flex !important; }
+ .mobile-nav a { color: #fff; text-decoration: none; font-size: 18px; letter-spacing: .08em; font-family: 'Hiragino Kaku Gothic ProN', sans-serif; }
+ .mobile-nav .btn-reserve { background: var(--amber); color: #fff !important; padding: 14px 40px; font-size: 15px; font-weight: 700; border-radius: 2px; }
+ .mobile-nav-close { position: absolute; top: 20px; right: 20px; font-size: 28px; color: #fff; cursor: pointer; background: none; border: none; }
 
-      /* ── 全体のletter-spacing リセット ── */
-      * { letter-spacing: 0.02em !important; }
-      .sec-label, .hero-eyebrow, .menu-cat, .kodawari-num, .blog-date,
-      .news-date, .footer-col h4, .footer-copy, .svc-sub, .r-service .svc-sub { letter-spacing: 0.08em !important; }
+ /* ── 全体のletter-spacing リセット ── */
+ * { letter-spacing: 0.02em !important; }
+ .sec-label, .hero-eyebrow, .menu-cat, .kodawari-num, .blog-date,
+ .news-date, .footer-col h4, .footer-copy, .svc-sub, .r-service .svc-sub { letter-spacing: 0.08em !important; }
 
-      /* ── Hero ── */
-      .hero { align-items: flex-end; justify-content: flex-start; }
-      .hero-content { padding: 0 20px 56px; gap: 12px; max-width: 100%; }
-      .hero-tag { font-size: 11px; padding: 6px 12px; }
-      .hero-title { font-size: 34px; line-height: 1.2; }
-      .hero-title .sub-line { font-size: 15px; margin-top: 4px; }
-      .hero-copy { font-size: 12px; line-height: 1.8; padding-left: 10px; }
-      .hero-stats { gap: 16px; }
-      .hero-stat .num { font-size: 22px; }
-      .hero-stat .label { font-size: 9px; }
-      .hero-cta { flex-direction: column; gap: 10px; width: 100%; }
-      .btn-amber, .btn-gold, .btn-line { padding: 14px 20px; font-size: 14px; text-align: center; width: 100%; display: block; }
-      .hero-dots { right: 16px; bottom: 16px; }
-      .scroll-hint { display: none; }
+ /* ── Hero ── */
+ .hero { align-items: flex-end; justify-content: flex-start; }
+ .hero-content { padding: 0 20px 56px; gap: 12px; max-width: 100%; }
+ .hero-tag { font-size: 11px; padding: 6px 12px; }
+ .hero-title { font-size: 34px; line-height: 1.2; }
+ .hero-title .sub-line { font-size: 15px; margin-top: 4px; }
+ .hero-copy { font-size: 12px; line-height: 1.8; padding-left: 10px; }
+ .hero-stats { gap: 16px; }
+ .hero-stat .num { font-size: 22px; }
+ .hero-stat .label { font-size: 9px; }
+ .hero-cta { flex-direction: column; gap: 10px; width: 100%; }
+ .btn-amber, .btn-gold, .btn-line { padding: 14px 20px; font-size: 14px; text-align: center; width: 100%; display: block; }
+ .hero-dots { right: 16px; bottom: 16px; }
+ .scroll-hint { display: none; }
 
-      /* ── Ticker ── */
-      .ticker-item { font-size: 11px; }
+ /* ── Ticker ── */
+ .ticker-item { font-size: 11px; }
 
-      /* ── Sections ── */
-      section { padding: 52px 0; }
-      .container { padding: 0 18px; }
-      .sec-label { font-size: 9px; margin-bottom: 10px; }
-      .sec-title { font-size: 22px; line-height: 1.4; }
+ /* ── Sections ── */
+ section { padding: 52px 0; }
+ .container { padding: 0 18px; }
+ .sec-label { font-size: 9px; margin-bottom: 10px; }
+ .sec-title { font-size: 22px; line-height: 1.4; }
 
-      /* ── Story ── */
-      .story-grid { grid-template-columns: 1fr; gap: 24px; }
-      .story-img-wrap { aspect-ratio: 16/9; }
-      .story-badge { left: 10px; bottom: 10px; padding: 10px 14px; }
-      .story-badge .num { font-size: 22px; }
-      .story-body { font-size: 13px; line-height: 1.9; }
-      .story-tags { gap: 8px; }
-      .tag { font-size: 10px; padding: 5px 10px; }
+ /* ── Story ── */
+ .story-grid { grid-template-columns: 1fr; gap: 24px; }
+ .story-img-wrap { aspect-ratio: 16/9; }
+ .story-badge { left: 10px; bottom: 10px; padding: 10px 14px; }
+ .story-badge .num { font-size: 22px; }
+ .story-body { font-size: 13px; line-height: 1.9; }
+ .story-tags { gap: 8px; }
+ .tag { font-size: 10px; padding: 5px 10px; }
 
-      /* ── Menu ── */
-      .menu-head { flex-direction: column; align-items: flex-start; gap: 6px; margin-bottom: 20px; }
-      .menu-tabs { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; padding-bottom: 2px; }
-      .menu-tabs::-webkit-scrollbar { display: none; }
-      .menu-tab { padding: 10px 14px; font-size: 12px; white-space: nowrap; }
-      .menu-hero-grid { grid-template-columns: 1fr; }
-      .menu-card-lg { aspect-ratio: 4/3; }
-      .menu-grid { grid-template-columns: 1fr 1fr; }
-      .menu-name { font-size: 14px; }
-      .menu-price .num { font-size: 17px; }
-      .menu-badge { font-size: 9px; padding: 4px 8px; }
-      .menu-desc { display: none; }
+ /* ── Menu ── */
+ .menu-head { flex-direction: column; align-items: flex-start; gap: 6px; margin-bottom: 20px; }
+ .menu-tabs { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; padding-bottom: 2px; }
+ .menu-tabs::-webkit-scrollbar { display: none; }
+ .menu-tab { padding: 10px 14px; font-size: 12px; white-space: nowrap; }
+ .menu-hero-grid { grid-template-columns: 1fr; }
+ .menu-card-lg { aspect-ratio: 4/3; }
+ .menu-grid { grid-template-columns: 1fr 1fr; }
+ .menu-name { font-size: 14px; }
+ .menu-price .num { font-size: 17px; }
+ .menu-badge { font-size: 9px; padding: 4px 8px; }
+ .menu-desc { display: none; }
 
-      /* ── Kodawari ── */
-      .kodawari-grid { grid-template-columns: 1fr; gap: 2px; }
-      .kodawari-item { aspect-ratio: 16/9; }
-      .kodawari-title { font-size: 16px; }
-      .kodawari-body { font-size: 12px; line-height: 1.7; }
+ /* ── Kodawari ── */
+ .kodawari-grid { grid-template-columns: 1fr; gap: 2px; }
+ .kodawari-item { aspect-ratio: 16/9; }
+ .kodawari-title { font-size: 16px; }
+ .kodawari-body { font-size: 12px; line-height: 1.7; }
 
-      /* ── Scene ── */
-      .scene-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
-      .scene-name { font-size: 13px; }
+ /* ── Scene ── */
+ .scene-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
+ .scene-name { font-size: 13px; }
 
-      /* ── News ── */
-      .news-row { display: flex; flex-direction: column; gap: 6px; padding: 16px 0; }
-      .news-date { font-size: 11px; color: var(--text-muted); }
-      .news-cat { font-size: 9px; width: fit-content; }
-      .news-ttl { font-size: 13px; line-height: 1.6; }
-      .news-arr { display: none; }
+ /* ── News ── */
+ .news-row { display: flex; flex-direction: column; gap: 6px; padding: 16px 0; }
+ .news-date { font-size: 11px; color: var(--text-muted); }
+ .news-cat { font-size: 9px; width: fit-content; }
+ .news-ttl { font-size: 13px; line-height: 1.6; }
+ .news-arr { display: none; }
 
-      /* ── Blog ── */
-      .blog-head { flex-direction: column; align-items: flex-start; gap: 6px; margin-bottom: 24px; }
-      .blog-grid { grid-template-columns: 1fr !important; gap: 28px; }
-      .blog-ttl { font-size: 15px; line-height: 1.6; }
-      .blog-excerpt { font-size: 12px; line-height: 1.7; }
+ /* ── Blog ── */
+ .blog-head { flex-direction: column; align-items: flex-start; gap: 6px; margin-bottom: 24px; }
+ .blog-grid { grid-template-columns: 1fr !important; gap: 28px; }
+ .blog-ttl { font-size: 15px; line-height: 1.6; }
+ .blog-excerpt { font-size: 12px; line-height: 1.7; }
 
-      /* ── Instagram ── */
-      .insta-grid { grid-template-columns: repeat(3, 1fr); gap: 2px; }
-      .insta-head { flex-direction: column; align-items: flex-start; gap: 8px; margin-bottom: 20px; }
+ /* ── Instagram ── */
+ .insta-grid { grid-template-columns: repeat(3, 1fr); gap: 2px; }
+ .insta-head { flex-direction: column; align-items: flex-start; gap: 8px; margin-bottom: 20px; }
 
-      /* ── Reserve CTA ── */
-      .reserve-cta { padding: 60px 0; }
-      .reserve-cta h2 { font-size: 22px; line-height: 1.4; margin-bottom: 12px; }
-      .reserve-cta p { font-size: 12px; margin-bottom: 32px; }
-      .reserve-services { flex-direction: column; gap: 10px; }
-      .r-service { padding: 18px 20px; }
-      .r-service .svc-name { font-size: 16px; }
+ /* ── Reserve CTA ── */
+ .reserve-cta { padding: 60px 0; }
+ .reserve-cta h2 { font-size: 22px; line-height: 1.4; margin-bottom: 12px; }
+ .reserve-cta p { font-size: 12px; margin-bottom: 32px; }
+ .reserve-services { flex-direction: column; gap: 10px; }
+ .r-service { padding: 18px 20px; }
+ .r-service .svc-name { font-size: 16px; }
 
-      /* ── Footer ── */
-      .footer-grid { grid-template-columns: 1fr !important; gap: 36px; }
-      .footer-col ul { gap: 10px; }
-      .footer-col ul li a { font-size: 13px; }
-      .footer-bottom { flex-direction: column; gap: 16px; align-items: flex-start; }
-      .footer-brand p { font-size: 12px; line-height: 1.8; }
-    }
-  </style>
+ /* ── Footer ── */
+ .footer-grid { grid-template-columns: 1fr !important; gap: 36px; }
+ .footer-col ul { gap: 10px; }
+ .footer-col ul li a { font-size: 13px; }
+ .footer-bottom { flex-direction: column; gap: 16px; align-items: flex-start; }
+ .footer-brand p { font-size: 12px; line-height: 1.8; }
+ }
+ </style>
 </head>
 <body>
 
 <!-- HEADER -->
 <header id="hdr">
-  <a href="#" class="logo">
-    <img class="logo-img" src="https://y-smile.co.jp/wp-content/themes/sumire/img/logo-new.png" alt="やきとり家すみれ" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-    <div class="logo-text" style="display:none">
-      <span class="logo-ja">やきとり家 すみれ</span>
-      <span class="logo-en">Yakitori-ya Sumire</span>
-    </div>
-  </a>
-  <nav>
-    <a href="#">メニュー</a>
-    <a href="#">こだわり</a>
-    <a href="#">ご利用シーン</a>
-    <a href="#">ニュース</a>
-    <a href="#">店舗検索</a>
-    <a href="#" class="btn-reserve">ご予約</a>
-  </nav>
-  <!-- ハンバーガー（モバイルのみ表示） -->
-  <div class="mobile-menu-btn" id="menuBtn" onclick="openNav()">
-    <span></span><span></span><span></span>
-  </div>
+ <a href="#" class="logo">
+ <img class="logo-img" src="https://y-smile.co.jp/wp-content/themes/sumire/img/logo-new.png" alt="やきとり家すみれ" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+ <div class="logo-text" style="display:none">
+ <span class="logo-ja">やきとり家 すみれ</span>
+ <span class="logo-en">Yakitori-ya Sumire</span>
+ </div>
+ </a>
+ <nav>
+ <a href="#">メニュー</a>
+ <a href="#">こだわり</a>
+ <a href="#">ご利用シーン</a>
+ <a href="#">ニュース</a>
+ <a href="#">店舗検索</a>
+ <a href="#" class="btn-reserve">ご予約</a>
+ </nav>
+ <!-- ハンバーガー（モバイルのみ表示） -->
+ <div class="mobile-menu-btn" id="menuBtn" onclick="openNav()">
+ <span></span><span></span><span></span>
+ </div>
 </header>
 
 <!-- モバイルナビ -->
 <div class="mobile-nav" id="mobileNav">
-  <button class="mobile-nav-close" onclick="closeNav()">✕</button>
-  <a href="#" onclick="closeNav()">メニュー</a>
-  <a href="#" onclick="closeNav()">こだわり</a>
-  <a href="#" onclick="closeNav()">ご利用シーン</a>
-  <a href="#" onclick="closeNav()">ニュース</a>
-  <a href="#" onclick="closeNav()">店舗検索</a>
-  <a href="#" class="btn-reserve" onclick="closeNav()">ご予約</a>
+ <button class="mobile-nav-close" onclick="closeNav()"></button>
+ <a href="#" onclick="closeNav()">メニュー</a>
+ <a href="#" onclick="closeNav()">こだわり</a>
+ <a href="#" onclick="closeNav()">ご利用シーン</a>
+ <a href="#" onclick="closeNav()">ニュース</a>
+ <a href="#" onclick="closeNav()">店舗検索</a>
+ <a href="#" class="btn-reserve" onclick="closeNav()">ご予約</a>
 </div>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-slides">
-    <div class="hero-slide hero-slide-1 active"></div>
-    <div class="hero-slide hero-slide-2"></div>
-    <div class="hero-slide hero-slide-3"></div>
-  </div>
-  <div class="hero-glow"></div>
-  <div class="hero-content">
-    <div class="hero-tag">🔥 鳥取県産 大山どり専門</div>
-    <h1 class="hero-title">
-      今夜は、<em>すみれ</em>で。
-      <span class="sub-line">炭火やきとりと、うまい酒。</span>
-    </h1>
-    <p class="hero-copy">
-      鳥取大山の恵み、大山どりを炭火で一串ずつ丁寧に。<br>
-      気軽に、でも本物の味を。それがすみれのスタイル。
-    </p>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <span class="num">76</span>
-        <span class="label">全国店舗数</span>
-      </div>
-      <div class="hero-stat-sep"></div>
-      <div class="hero-stat">
-        <span class="num">15</span>
-        <span class="label">創業年数</span>
-      </div>
-      <div class="hero-stat-sep"></div>
-      <div class="hero-stat">
-        <span class="num">275</span>
-        <span class="label">王様レバー(円〜)</span>
-      </div>
-    </div>
-    <div class="hero-cta">
-      <a href="#" class="btn-amber">今すぐ予約する</a>
-      <a href="#" class="btn-line">メニューを見る</a>
-    </div>
-  </div>
-  <div class="hero-dots">
-    <div class="hero-dot active" data-i="0"></div>
-    <div class="hero-dot" data-i="1"></div>
-    <div class="hero-dot" data-i="2"></div>
-  </div>
-  <div class="scroll-hint">
-    <div class="scroll-line"></div>
-    <span>SCROLL</span>
-  </div>
+ <div class="hero-slides">
+ <div class="hero-slide hero-slide-1 active"></div>
+ <div class="hero-slide hero-slide-2"></div>
+ <div class="hero-slide hero-slide-3"></div>
+ </div>
+ <div class="hero-glow"></div>
+ <div class="hero-content">
+ <div class="hero-tag"> 鳥取県産 大山どり専門</div>
+ <h1 class="hero-title">
+ 今夜は、<em style="white-space:nowrap">すみれ</em>で。
+ <span class="sub-line">炭火やきとりと、うまい酒。</span>
+ </h1>
+ <p class="hero-copy">
+ 鳥取大山の恵み、大山どりを炭火で一串ずつ丁寧に。<br>
+ 気軽に、でも本物の味を。それがすみれのスタイル。
+ </p>
+ <div class="hero-stats">
+ <div class="hero-stat">
+ <span class="num">76</span>
+ <span class="label">全国店舗数</span>
+ </div>
+ <div class="hero-stat-sep"></div>
+ <div class="hero-stat">
+ <span class="num">15</span>
+ <span class="label">創業年数</span>
+ </div>
+ <div class="hero-stat-sep"></div>
+ <div class="hero-stat">
+ <span class="num">275</span>
+ <span class="label">王様レバー(円〜)</span>
+ </div>
+ </div>
+ <div class="hero-cta">
+ <a href="#" class="btn-amber">今すぐ予約する</a>
+ <a href="#" class="btn-line">メニューを見る</a>
+ </div>
+ </div>
+ <div class="hero-dots">
+ <div class="hero-dot active" data-i="0"></div>
+ <div class="hero-dot" data-i="1"></div>
+ <div class="hero-dot" data-i="2"></div>
+ </div>
+ <div class="scroll-hint">
+ <div class="scroll-line"></div>
+ <span>SCROLL</span>
+ </div>
 </section>
 
 <!-- TICKER -->
 <div class="ticker">
-  <div class="ticker-track">
-    <div class="ticker-item"><span class="ticker-sep"></span><span>鳥取県産 大山どり使用</span></div>
-    <div class="ticker-item"><span class="ticker-sep"></span><span>全国76店舗展開</span></div>
-    <div class="ticker-item"><span class="ticker-sep"></span><span>王様レバー 1本275円</span></div>
-    <div class="ticker-item"><span class="ticker-sep"></span><span>ひなトロ 1本264円</span></div>
-    <div class="ticker-item"><span class="ticker-sep"></span><span>宴会・飲み会・接待・女子会</span></div>
-    <div class="ticker-item"><span class="ticker-sep"></span><span>テイクアウト・デリバリー対応</span></div>
-    <div class="ticker-item"><span class="ticker-sep"></span><span>創業2009年 やきとり家すみれ</span></div>
-    <!-- repeat -->
-    <div class="ticker-item"><span class="ticker-sep"></span><span>鳥取県産 大山どり使用</span></div>
-    <div class="ticker-item"><span class="ticker-sep"></span><span>全国76店舗展開</span></div>
-    <div class="ticker-item"><span class="ticker-sep"></span><span>王様レバー 1本275円</span></div>
-    <div class="ticker-item"><span class="ticker-sep"></span><span>ひなトロ 1本264円</span></div>
-    <div class="ticker-item"><span class="ticker-sep"></span><span>宴会・飲み会・接待・女子会</span></div>
-    <div class="ticker-item"><span class="ticker-sep"></span><span>テイクアウト・デリバリー対応</span></div>
-    <div class="ticker-item"><span class="ticker-sep"></span><span>創業2009年 やきとり家すみれ</span></div>
-  </div>
+ <div class="ticker-track">
+ <div class="ticker-item"><span class="ticker-sep"></span><span>鳥取県産 大山どり使用</span></div>
+ <div class="ticker-item"><span class="ticker-sep"></span><span>全国76店舗展開</span></div>
+ <div class="ticker-item"><span class="ticker-sep"></span><span>王様レバー 1本275円</span></div>
+ <div class="ticker-item"><span class="ticker-sep"></span><span>ひなトロ 1本264円</span></div>
+ <div class="ticker-item"><span class="ticker-sep"></span><span>宴会・飲み会・接待・女子会</span></div>
+ <div class="ticker-item"><span class="ticker-sep"></span><span>テイクアウト・デリバリー対応</span></div>
+ <div class="ticker-item"><span class="ticker-sep"></span><span>創業2009年 やきとり家すみれ</span></div>
+ <!-- repeat -->
+ <div class="ticker-item"><span class="ticker-sep"></span><span>鳥取県産 大山どり使用</span></div>
+ <div class="ticker-item"><span class="ticker-sep"></span><span>全国76店舗展開</span></div>
+ <div class="ticker-item"><span class="ticker-sep"></span><span>王様レバー 1本275円</span></div>
+ <div class="ticker-item"><span class="ticker-sep"></span><span>ひなトロ 1本264円</span></div>
+ <div class="ticker-item"><span class="ticker-sep"></span><span>宴会・飲み会・接待・女子会</span></div>
+ <div class="ticker-item"><span class="ticker-sep"></span><span>テイクアウト・デリバリー対応</span></div>
+ <div class="ticker-item"><span class="ticker-sep"></span><span>創業2009年 やきとり家すみれ</span></div>
+ </div>
 </div>
 
 <!-- BRAND STORY -->
 <section class="story">
-  <div class="container">
-    <div class="story-grid">
-      <div class="story-img-wrap reveal">
-        <img src="https://y-smile.co.jp/wp-content/uploads/2024/11/5.jpg" alt="大山どり やきとり" onerror="this.src='https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy1.jpg'">
-        <div class="story-badge">
-          <div class="num">76</div>
-          <div class="num-sub">STORES</div>
-        </div>
-      </div>
-      <div class="story-text reveal">
-        <div class="sec-label">Brand Story</div>
-        <h2 class="sec-title">大山のふもとで<br>育まれた、確かな旨み</h2>
-        <p class="story-body">
-          鳥取県大山の豊かな自然の中で育った「大山どり」。<br>
-          その品質と旨みに惚れ込んだ創業者が、<br>
-          2009年に一号店を開いてから15年。<br><br>
-          炭火という原始的な料理法が、<br>
-          素材の持つ本来の力を最大限に引き出す。<br>
-          余計なものは加えず、ただ真摯に向き合う。<br>
-          それが、すみれの変わらぬ哲学です。
-        </p>
-        <div class="story-tags">
-          <span class="tag">大山どり</span>
-          <span class="tag">国産鶏100%</span>
-          <span class="tag">炭火焼き</span>
-          <span class="tag">創業2009年</span>
-        </div>
-        <a href="#" class="btn-line" style="width:fit-content;margin-top:4px;">こだわりを見る</a>
-      </div>
-    </div>
-  </div>
+ <div class="container">
+ <div class="story-grid">
+ <div class="story-img-wrap reveal">
+ <img src="https://y-smile.co.jp/wp-content/uploads/2024/11/5.jpg" alt="大山どり やきとり" onerror="this.src='https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy1.jpg'">
+ <div class="story-badge">
+ <div class="num">76</div>
+ <div class="num-sub">STORES</div>
+ </div>
+ </div>
+ <div class="story-text reveal">
+ <div class="sec-label">Brand Story</div>
+ <h2 class="sec-title">大山のふもとで<br>育まれた、確かな旨み</h2>
+ <p class="story-body">
+ 鳥取県大山の豊かな自然の中で育った「大山どり」。<br>
+ その品質と旨みに惚れ込んだ創業者が、<br>
+ 2009年に一号店を開いてから15年。<br><br>
+ 炭火という原始的な料理法が、<br>
+ 素材の持つ本来の力を最大限に引き出す。<br>
+ 余計なものは加えず、ただ真摯に向き合う。<br>
+ それが、すみれの変わらぬ哲学です。
+ </p>
+ <div class="story-tags">
+ <span class="tag">大山どり</span>
+ <span class="tag">国産鶏100%</span>
+ <span class="tag">炭火焼き</span>
+ <span class="tag">創業2009年</span>
+ </div>
+ <a href="#" class="btn-line" style="width:fit-content;margin-top:4px;">こだわりを見る</a>
+ </div>
+ </div>
+ </div>
 </section>
 
 <!-- MENU -->
 <section class="menu-sec">
-  <div class="container">
-    <div class="menu-head">
-      <div>
-        <div class="sec-label">Menu</div>
-        <h2 class="sec-title">頼むべき一串、ある。</h2>
-      </div>
-      <a href="#" class="all-link">全メニューを見る →</a>
-    </div>
+ <div class="container">
+ <div class="menu-head">
+ <div>
+ <div class="sec-label">Menu</div>
+ <h2 class="sec-title">頼むべき一串、ある。</h2>
+ </div>
+ <a href="#" class="all-link">全メニューを見る →</a>
+ </div>
 
-    <!-- タブ -->
-    <div class="menu-tabs">
-      <div class="menu-tab active" data-tab="yakitori">🔥 看板メニュー</div>
-      <div class="menu-tab" data-tab="drink">🍶 ドリンク</div>
-      <div class="menu-tab" data-tab="course">🎉 宴会コース</div>
-      <div class="menu-tab" data-tab="takeout">📦 テイクアウト</div>
-    </div>
+ <!-- タブ -->
+ <div class="menu-tabs">
+ <div class="menu-tab active" data-tab="yakitori"> 看板メニュー</div>
+ <div class="menu-tab" data-tab="drink"> ドリンク</div>
+ <div class="menu-tab" data-tab="course"> 宴会コース</div>
+ <div class="menu-tab" data-tab="takeout"> テイクアウト</div>
+ </div>
 
-    <!-- ① 看板メニュー -->
-    <div class="tab-panel" id="tab-yakitori">
-      <div class="menu-hero-grid reveal">
-        <div class="menu-card-lg">
-          <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/smile2021GM_shio.jpg" alt="王様レバー">
-          <span class="menu-badge">人気 No.1</span>
-          <div class="menu-overlay">
-            <div class="menu-cat">SIGNATURE</div>
-            <div class="menu-name">王様レバー</div>
-            <div class="menu-price"><span class="yen">¥</span><span class="num">275</span><span class="tax">（税込）/ 本</span></div>
-            <div class="menu-desc">臭みゼロ、濃厚な旨みがとろける看板商品。大山どりの鮮度だから実現するなめらかな食感。</div>
-          </div>
-        </div>
-        <div class="menu-card-lg">
-          <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/smile2021GM_tare.jpg" alt="ひなトロ">
-          <span class="menu-badge new">幻の希少部位</span>
-          <div class="menu-overlay">
-            <div class="menu-cat">SIGNATURE</div>
-            <div class="menu-name">ひなトロ</div>
-            <div class="menu-price"><span class="yen">¥</span><span class="num">264</span><span class="tax">（税込）/ 本</span></div>
-            <div class="menu-desc">口の中でとろける脂と、炭火の香りが絶妙に絡み合う幻の一串。</div>
-          </div>
-        </div>
-      </div>
-      <div class="menu-grid reveal">
-        <div class="menu-card">
-          <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy2.jpg" alt="炭火やきとり" style="aspect-ratio:4/3">
-          <div class="menu-overlay">
-            <div class="menu-cat">CHARCOAL</div>
-            <div class="menu-name">炭火串盛り合わせ</div>
-            <div class="menu-price"><span class="yen">¥</span><span class="num">880</span><span class="tax">〜（5本）</span></div>
-            <div class="menu-desc">おすすめ部位を盛り合わせたセット。初めての方はまずこれ。</div>
-          </div>
-        </div>
-        <div class="menu-card">
-          <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy4.jpg" alt="もも" style="aspect-ratio:4/3">
-          <div class="menu-overlay">
-            <div class="menu-cat">CLASSIC</div>
-            <div class="menu-name">もも（塩 / タレ）</div>
-            <div class="menu-price"><span class="yen">¥</span><span class="num">187</span><span class="tax">（税込）/ 本</span></div>
-            <div class="menu-desc">大山どりのジューシーなもも肉。塩とタレ、お好みで。</div>
-          </div>
-        </div>
-        <div class="menu-card">
-          <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy5.jpg" alt="つくね" style="aspect-ratio:4/3">
-          <div class="menu-overlay">
-            <div class="menu-cat">CLASSIC</div>
-            <div class="menu-name">つくね</div>
-            <div class="menu-price"><span class="yen">¥</span><span class="num">220</span><span class="tax">（税込）/ 本</span></div>
-            <div class="menu-desc">手ごねで仕上げたふわふわの食感。卵黄とのコラボが絶品。</div>
-          </div>
-        </div>
-      </div>
-    </div>
+ <!-- ① 看板メニュー -->
+ <div class="tab-panel" id="tab-yakitori">
+ <div class="menu-hero-grid reveal">
+ <div class="menu-card-lg">
+ <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/smile2021GM_shio.jpg" alt="王様レバー">
+ <span class="menu-badge">人気 No.1</span>
+ <div class="menu-overlay">
+ <div class="menu-cat">SIGNATURE</div>
+ <div class="menu-name">王様レバー</div>
+ <div class="menu-price"><span class="yen">¥</span><span class="num">275</span><span class="tax">（税込）/ 本</span></div>
+ <div class="menu-desc">臭みゼロ、濃厚な旨みがとろける看板商品。大山どりの鮮度だから実現するなめらかな食感。</div>
+ </div>
+ </div>
+ <div class="menu-card-lg">
+ <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/smile2021GM_tare.jpg" alt="ひなトロ">
+ <span class="menu-badge new">幻の希少部位</span>
+ <div class="menu-overlay">
+ <div class="menu-cat">SIGNATURE</div>
+ <div class="menu-name">ひなトロ</div>
+ <div class="menu-price"><span class="yen">¥</span><span class="num">264</span><span class="tax">（税込）/ 本</span></div>
+ <div class="menu-desc">口の中でとろける脂と、炭火の香りが絶妙に絡み合う幻の一串。</div>
+ </div>
+ </div>
+ </div>
+ <div class="menu-grid reveal">
+ <div class="menu-card">
+ <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy2.jpg" alt="炭火やきとり" style="aspect-ratio:4/3">
+ <div class="menu-overlay">
+ <div class="menu-cat">CHARCOAL</div>
+ <div class="menu-name">炭火串盛り合わせ</div>
+ <div class="menu-price"><span class="yen">¥</span><span class="num">880</span><span class="tax">〜（5本）</span></div>
+ <div class="menu-desc">おすすめ部位を盛り合わせたセット。初めての方はまずこれ。</div>
+ </div>
+ </div>
+ <div class="menu-card">
+ <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy4.jpg" alt="もも" style="aspect-ratio:4/3">
+ <div class="menu-overlay">
+ <div class="menu-cat">CLASSIC</div>
+ <div class="menu-name">もも（塩 / タレ）</div>
+ <div class="menu-price"><span class="yen">¥</span><span class="num">187</span><span class="tax">（税込）/ 本</span></div>
+ <div class="menu-desc">大山どりのジューシーなもも肉。塩とタレ、お好みで。</div>
+ </div>
+ </div>
+ <div class="menu-card">
+ <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy5.jpg" alt="つくね" style="aspect-ratio:4/3">
+ <div class="menu-overlay">
+ <div class="menu-cat">CLASSIC</div>
+ <div class="menu-name">つくね</div>
+ <div class="menu-price"><span class="yen">¥</span><span class="num">220</span><span class="tax">（税込）/ 本</span></div>
+ <div class="menu-desc">手ごねで仕上げたふわふわの食感。卵黄とのコラボが絶品。</div>
+ </div>
+ </div>
+ </div>
+ </div>
 
-    <!-- ② ドリンク -->
-    <div class="tab-panel" id="tab-drink" style="display:none">
-      <div class="drink-intro reveal">
-        <p>やきとりに合う一杯を、厳選してお届けします。</p>
-      </div>
-      <div class="drink-grid reveal">
-        <div class="drink-card">
-          <div class="drink-icon">🍺</div>
-          <div class="drink-info">
-            <div class="drink-cat">BEER</div>
-            <div class="drink-name">生ビール</div>
-            <div class="drink-price">¥<span>550</span>〜</div>
-            <div class="drink-desc">キンキンに冷えた生ビール。焼きたてのやきとりとの相性は抜群。</div>
-          </div>
-        </div>
-        <div class="drink-card">
-          <div class="drink-icon">🍶</div>
-          <div class="drink-info">
-            <div class="drink-cat">SAKE</div>
-            <div class="drink-name">日本酒（冷 / 燗）</div>
-            <div class="drink-price">¥<span>550</span>〜</div>
-            <div class="drink-desc">炭火の香りと相性抜群の厳選日本酒。産地にこだわった銘柄を季節ごとにご用意。</div>
-          </div>
-        </div>
-        <div class="drink-card">
-          <div class="drink-icon">🥃</div>
-          <div class="drink-info">
-            <div class="drink-cat">SHOCHU</div>
-            <div class="drink-name">焼酎（芋 / 麦 / 米）</div>
-            <div class="drink-price">¥<span>495</span>〜</div>
-            <div class="drink-desc">やきとりを引き立てる本格焼酎。水割り・お湯割り・ロックでどうぞ。</div>
-          </div>
-        </div>
-        <div class="drink-card">
-          <div class="drink-icon">🍸</div>
-          <div class="drink-info">
-            <div class="drink-cat">COCKTAIL</div>
-            <div class="drink-name">サワー・チューハイ</div>
-            <div class="drink-price">¥<span>440</span>〜</div>
-            <div class="drink-desc">レモン・グレープフルーツなど豊富なラインナップ。飲みやすくてすっきり。</div>
-          </div>
-        </div>
-        <div class="drink-card">
-          <div class="drink-icon">🍷</div>
-          <div class="drink-info">
-            <div class="drink-cat">WINE</div>
-            <div class="drink-name">ワイン（赤 / 白）</div>
-            <div class="drink-price">¥<span>550</span>〜</div>
-            <div class="drink-desc">やきとりに合う赤・白をセレクト。女子会・記念日にもおすすめ。</div>
-          </div>
-        </div>
-        <div class="drink-card">
-          <div class="drink-icon">🥤</div>
-          <div class="drink-info">
-            <div class="drink-cat">SOFT</div>
-            <div class="drink-name">ソフトドリンク</div>
-            <div class="drink-price">¥<span>330</span>〜</div>
-            <div class="drink-desc">ウーロン茶・コーラ・ジュースなど各種ご用意しています。</div>
-          </div>
-        </div>
-      </div>
-      <div class="drink-note reveal">
-        <span>🎉</span> 飲み放題プランは宴会コースと組み合わせてご利用いただけます
-        <a href="#" onclick="switchTab('course')">宴会コースを見る →</a>
-      </div>
-    </div>
+ <!-- ② ドリンク -->
+ <div class="tab-panel" id="tab-drink" style="display:none">
+ <div class="drink-intro reveal">
+ <p>やきとりに合う一杯を、厳選してお届けします。</p>
+ </div>
+ <div class="drink-grid reveal">
+ <div class="drink-card">
+ <div class="drink-icon"></div>
+ <div class="drink-info">
+ <div class="drink-cat">BEER</div>
+ <div class="drink-name">生ビール</div>
+ <div class="drink-price">¥<span>550</span>〜</div>
+ <div class="drink-desc">キンキンに冷えた生ビール。焼きたてのやきとりとの相性は抜群。</div>
+ </div>
+ </div>
+ <div class="drink-card">
+ <div class="drink-icon"></div>
+ <div class="drink-info">
+ <div class="drink-cat">SAKE</div>
+ <div class="drink-name">日本酒（冷 / 燗）</div>
+ <div class="drink-price">¥<span>550</span>〜</div>
+ <div class="drink-desc">炭火の香りと相性抜群の厳選日本酒。産地にこだわった銘柄を季節ごとにご用意。</div>
+ </div>
+ </div>
+ <div class="drink-card">
+ <div class="drink-icon"></div>
+ <div class="drink-info">
+ <div class="drink-cat">SHOCHU</div>
+ <div class="drink-name">焼酎（芋 / 麦 / 米）</div>
+ <div class="drink-price">¥<span>495</span>〜</div>
+ <div class="drink-desc">やきとりを引き立てる本格焼酎。水割り・お湯割り・ロックでどうぞ。</div>
+ </div>
+ </div>
+ <div class="drink-card">
+ <div class="drink-icon"></div>
+ <div class="drink-info">
+ <div class="drink-cat">COCKTAIL</div>
+ <div class="drink-name">サワー・チューハイ</div>
+ <div class="drink-price">¥<span>440</span>〜</div>
+ <div class="drink-desc">レモン・グレープフルーツなど豊富なラインナップ。飲みやすくてすっきり。</div>
+ </div>
+ </div>
+ <div class="drink-card">
+ <div class="drink-icon"></div>
+ <div class="drink-info">
+ <div class="drink-cat">WINE</div>
+ <div class="drink-name">ワイン（赤 / 白）</div>
+ <div class="drink-price">¥<span>550</span>〜</div>
+ <div class="drink-desc">やきとりに合う赤・白をセレクト。女子会・記念日にもおすすめ。</div>
+ </div>
+ </div>
+ <div class="drink-card">
+ <div class="drink-icon"></div>
+ <div class="drink-info">
+ <div class="drink-cat">SOFT</div>
+ <div class="drink-name">ソフトドリンク</div>
+ <div class="drink-price">¥<span>330</span>〜</div>
+ <div class="drink-desc">ウーロン茶・コーラ・ジュースなど各種ご用意しています。</div>
+ </div>
+ </div>
+ </div>
+ <div class="drink-note reveal">
+ <span></span> 飲み放題プランは宴会コースと組み合わせてご利用いただけます
+ <a href="#" onclick="switchTab('course')">宴会コースを見る →</a>
+ </div>
+ </div>
 
-    <!-- ③ 宴会コース -->
-    <div class="tab-panel" id="tab-course" style="display:none">
-      <div class="course-grid reveal">
-        <div class="course-card">
-          <div class="course-badge">人気</div>
-          <div class="course-header">
-            <div class="course-name">すみれコース</div>
-            <div class="course-price">¥<span>3,500</span><small>/ 人（税込）</small></div>
-          </div>
-          <div class="course-meta">
-            <span>⏱ 2時間制</span>
-            <span>👥 2名〜</span>
-            <span>🍶 飲み放題 +1,500円</span>
-          </div>
-          <ul class="course-items">
-            <li>✓ 王様レバー・ひなトロなど看板串 5本</li>
-            <li>✓ 季節のお造り盛り合わせ</li>
-            <li>✓ 焼き野菜盛り</li>
-            <li>✓ 〆の鶏雑炊 または 焼きおにぎり</li>
-            <li>✓ サラダ・小鉢 各種</li>
-          </ul>
-          <a href="#" class="btn-amber" style="display:block;text-align:center;margin-top:20px;padding:14px;">このコースを予約する</a>
-        </div>
-        <div class="course-card">
-          <div class="course-badge premium">プレミアム</div>
-          <div class="course-header">
-            <div class="course-name">大山どりプレミアムコース</div>
-            <div class="course-price">¥<span>5,000</span><small>/ 人（税込）</small></div>
-          </div>
-          <div class="course-meta">
-            <span>⏱ 2.5時間制</span>
-            <span>👥 2名〜</span>
-            <span>🍶 飲み放題込み</span>
-          </div>
-          <ul class="course-items">
-            <li>✓ 希少部位を含む厳選串 10本</li>
-            <li>✓ 大山どり刺し盛り合わせ</li>
-            <li>✓ 旬の焼き野菜・天ぷら盛り</li>
-            <li>✓ 〆の特製親子丼</li>
-            <li>✓ デザート付き</li>
-            <li>✓ 飲み放題（プレミアム）込み</li>
-          </ul>
-          <a href="#" class="btn-amber" style="display:block;text-align:center;margin-top:20px;padding:14px;">このコースを予約する</a>
-        </div>
-      </div>
-      <div class="course-note reveal">
-        <div class="course-note-item">🎂 誕生日・記念日のサプライズ演出も承ります</div>
-        <div class="course-note-item">🏢 貸切・大人数宴会もお気軽にご相談ください</div>
-        <div class="course-note-item">📞 詳細はお近くの店舗にお問い合わせください</div>
-      </div>
-    </div>
+ <!-- ③ 宴会コース -->
+ <div class="tab-panel" id="tab-course" style="display:none">
+ <div class="course-grid reveal">
+ <div class="course-card">
+ <div class="course-badge">人気</div>
+ <div class="course-header">
+ <div class="course-name">すみれコース</div>
+ <div class="course-price">¥<span>3,500</span><small>/ 人（税込）</small></div>
+ </div>
+ <div class="course-meta">
+ <span>⏱ 2時間制</span>
+ <span> 2名〜</span>
+ <span> 飲み放題 +1,500円</span>
+ </div>
+ <ul class="course-items">
+ <li> 王様レバー・ひなトロなど看板串 5本</li>
+ <li> 季節のお造り盛り合わせ</li>
+ <li> 焼き野菜盛り</li>
+ <li> 〆の鶏雑炊 または 焼きおにぎり</li>
+ <li> サラダ・小鉢 各種</li>
+ </ul>
+ <a href="#" class="btn-amber" style="display:block;text-align:center;margin-top:20px;padding:14px;">このコースを予約する</a>
+ </div>
+ <div class="course-card">
+ <div class="course-badge premium">プレミアム</div>
+ <div class="course-header">
+ <div class="course-name">大山どりプレミアムコース</div>
+ <div class="course-price">¥<span>5,000</span><small>/ 人（税込）</small></div>
+ </div>
+ <div class="course-meta">
+ <span>⏱ 2.5時間制</span>
+ <span> 2名〜</span>
+ <span> 飲み放題込み</span>
+ </div>
+ <ul class="course-items">
+ <li> 希少部位を含む厳選串 10本</li>
+ <li> 大山どり刺し盛り合わせ</li>
+ <li> 旬の焼き野菜・天ぷら盛り</li>
+ <li> 〆の特製親子丼</li>
+ <li> デザート付き</li>
+ <li> 飲み放題（プレミアム）込み</li>
+ </ul>
+ <a href="#" class="btn-amber" style="display:block;text-align:center;margin-top:20px;padding:14px;">このコースを予約する</a>
+ </div>
+ </div>
+ <div class="course-note reveal">
+ <div class="course-note-item"> 誕生日・記念日のサプライズ演出も承ります</div>
+ <div class="course-note-item"> 貸切・大人数宴会もお気軽にご相談ください</div>
+ <div class="course-note-item"> 詳細はお近くの店舗にお問い合わせください</div>
+ </div>
+ </div>
 
-    <!-- ④ テイクアウト -->
-    <div class="tab-panel" id="tab-takeout" style="display:none">
-      <div class="takeout-intro reveal">
-        <div class="takeout-intro-text">
-          <h3>お家でも、すみれの味を。</h3>
-          <p>炭火で丁寧に焼き上げた串をそのままお持ち帰り。<br>ご自宅でも、大山どりの本格やきとりをお楽しみいただけます。</p>
-          <div class="takeout-services">
-            <div class="takeout-service">
-              <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/takeout_top.svg" alt="テイクアウト" onerror="this.style.display='none'">
-              <span>テイクアウト</span>
-            </div>
-            <div class="takeout-service">
-              <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/delivery_top.svg" alt="デリバリー" onerror="this.style.display='none'">
-              <span>デリバリー</span>
-            </div>
-          </div>
-        </div>
-        <img class="takeout-img" src="https://y-smile.co.jp/wp-content/uploads/2024/11/6.jpg" alt="テイクアウト">
-      </div>
-      <div class="takeout-grid reveal">
-        <div class="takeout-item">
-          <div class="takeout-name">🔥 看板串セット（5本）</div>
-          <div class="takeout-price">¥<span>1,200</span>（税込）</div>
-          <div class="takeout-desc">王様レバー・ひなトロ・もも・つくね・旬の一串</div>
-        </div>
-        <div class="takeout-item">
-          <div class="takeout-name">🍗 もも串（塩/タレ）</div>
-          <div class="takeout-price">¥<span>187</span>〜 / 本</div>
-          <div class="takeout-desc">ジューシーなもも肉を炭火でじっくり焼き上げ</div>
-        </div>
-        <div class="takeout-item">
-          <div class="takeout-name">🥚 つくね</div>
-          <div class="takeout-price">¥<span>220</span> / 本</div>
-          <div class="takeout-desc">手ごねのふわふわつくね。ご家庭でも卵黄と一緒に</div>
-        </div>
-        <div class="takeout-item">
-          <div class="takeout-name">👑 王様レバー</div>
-          <div class="takeout-price">¥<span>275</span> / 本</div>
-          <div class="takeout-desc">鮮度抜群の大山どりレバー。臭みゼロのとろける食感</div>
-        </div>
-        <div class="takeout-item">
-          <div class="takeout-name">🎁 ファミリーパック（10本）</div>
-          <div class="takeout-price">¥<span>2,200</span>〜</div>
-          <div class="takeout-desc">おうち時間をすみれの味で。4〜5人分の盛り合わせ</div>
-        </div>
-        <div class="takeout-item">
-          <div class="takeout-name">🎉 パーティーパック（20本）</div>
-          <div class="takeout-price">¥<span>4,200</span>〜</div>
-          <div class="takeout-desc">ホームパーティーに最適。お好みの串をセレクト可</div>
-        </div>
-      </div>
-      <div class="takeout-cta reveal">
-        <a href="#" class="btn-amber">近くの店舗でテイクアウト注文</a>
-        <p>※ 店舗によりメニュー・営業時間が異なります。詳細は各店舗にお問い合わせください。</p>
-      </div>
-    </div>
+ <!-- ④ テイクアウト -->
+ <div class="tab-panel" id="tab-takeout" style="display:none">
+ <div class="takeout-intro reveal">
+ <div class="takeout-intro-text">
+ <h3>お家でも、すみれの味を。</h3>
+ <p>炭火で丁寧に焼き上げた串をそのままお持ち帰り。<br>ご自宅でも、大山どりの本格やきとりをお楽しみいただけます。</p>
+ <div class="takeout-services">
+ <div class="takeout-service">
+ <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/takeout_top.svg" alt="テイクアウト" onerror="this.style.display='none'">
+ <span>テイクアウト</span>
+ </div>
+ <div class="takeout-service">
+ <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/delivery_top.svg" alt="デリバリー" onerror="this.style.display='none'">
+ <span>デリバリー</span>
+ </div>
+ </div>
+ </div>
+ <img class="takeout-img" src="https://y-smile.co.jp/wp-content/uploads/2024/11/6.jpg" alt="テイクアウト">
+ </div>
+ <div class="takeout-grid reveal">
+ <div class="takeout-item">
+ <div class="takeout-name"> 看板串セット（5本）</div>
+ <div class="takeout-price">¥<span>1,200</span>（税込）</div>
+ <div class="takeout-desc">王様レバー・ひなトロ・もも・つくね・旬の一串</div>
+ </div>
+ <div class="takeout-item">
+ <div class="takeout-name"> もも串（塩/タレ）</div>
+ <div class="takeout-price">¥<span>187</span>〜 / 本</div>
+ <div class="takeout-desc">ジューシーなもも肉を炭火でじっくり焼き上げ</div>
+ </div>
+ <div class="takeout-item">
+ <div class="takeout-name"> つくね</div>
+ <div class="takeout-price">¥<span>220</span> / 本</div>
+ <div class="takeout-desc">手ごねのふわふわつくね。ご家庭でも卵黄と一緒に</div>
+ </div>
+ <div class="takeout-item">
+ <div class="takeout-name"> 王様レバー</div>
+ <div class="takeout-price">¥<span>275</span> / 本</div>
+ <div class="takeout-desc">鮮度抜群の大山どりレバー。臭みゼロのとろける食感</div>
+ </div>
+ <div class="takeout-item">
+ <div class="takeout-name"> ファミリーパック（10本）</div>
+ <div class="takeout-price">¥<span>2,200</span>〜</div>
+ <div class="takeout-desc">おうち時間をすみれの味で。4〜5人分の盛り合わせ</div>
+ </div>
+ <div class="takeout-item">
+ <div class="takeout-name"> パーティーパック（20本）</div>
+ <div class="takeout-price">¥<span>4,200</span>〜</div>
+ <div class="takeout-desc">ホームパーティーに最適。お好みの串をセレクト可</div>
+ </div>
+ </div>
+ <div class="takeout-cta reveal">
+ <a href="#" class="btn-amber">近くの店舗でテイクアウト注文</a>
+ <p>※ 店舗によりメニュー・営業時間が異なります。詳細は各店舗にお問い合わせください。</p>
+ </div>
+ </div>
 
-  </div>
+ </div>
 </section>
 
 <!-- KODAWARI -->
 <section class="kodawari">
-  <div class="container">
-    <div class="sec-label">Our Promise</div>
-    <h2 class="sec-title">すみれの三つのこだわり</h2>
-    <div class="kodawari-grid">
-      <div class="kodawari-item reveal">
-        <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy1.jpg" alt="素材">
-        <div class="kodawari-text">
-          <div class="kodawari-num">01 — INGREDIENT</div>
-          <div class="kodawari-title">厳選素材</div>
-          <div class="kodawari-body">鳥取県産大山どりのみを使用。産地から食卓まで、鮮度と品質を一切妥協しません。</div>
-        </div>
-      </div>
-      <div class="kodawari-item reveal">
-        <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy2.jpg" alt="炭火">
-        <div class="kodawari-text">
-          <div class="kodawari-num">02 — CHARCOAL</div>
-          <div class="kodawari-title">炭火の技</div>
-          <div class="kodawari-body">遠赤外線が素材の芯まで熱を届け、炭火だけが生み出す唯一の焼き上がりを実現。</div>
-        </div>
-      </div>
-      <div class="kodawari-item reveal">
-        <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy3.jpg" alt="ドリンク">
-        <div class="kodawari-text">
-          <div class="kodawari-num">03 — DRINK</div>
-          <div class="kodawari-title">ドリンクの充実</div>
-          <div class="kodawari-body">やきとりに合う日本酒・焼酎・クラフトビールを厳選。素材の旨みを引き立てます。</div>
-        </div>
-      </div>
-    </div>
-  </div>
+ <div class="container">
+ <div class="sec-label">Our Promise</div>
+ <h2 class="sec-title">すみれの三つのこだわり</h2>
+ <div class="kodawari-grid">
+ <div class="kodawari-item reveal">
+ <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy1.jpg" alt="素材">
+ <div class="kodawari-text">
+ <div class="kodawari-num">01 — INGREDIENT</div>
+ <div class="kodawari-title">厳選素材</div>
+ <div class="kodawari-body">鳥取県産大山どりのみを使用。産地から食卓まで、鮮度と品質を一切妥協しません。</div>
+ </div>
+ </div>
+ <div class="kodawari-item reveal">
+ <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy2.jpg" alt="炭火">
+ <div class="kodawari-text">
+ <div class="kodawari-num">02 — CHARCOAL</div>
+ <div class="kodawari-title">炭火の技</div>
+ <div class="kodawari-body">遠赤外線が素材の芯まで熱を届け、炭火だけが生み出す唯一の焼き上がりを実現。</div>
+ </div>
+ </div>
+ <div class="kodawari-item reveal">
+ <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy3.jpg" alt="ドリンク">
+ <div class="kodawari-text">
+ <div class="kodawari-num">03 — DRINK</div>
+ <div class="kodawari-title">ドリンクの充実</div>
+ <div class="kodawari-body">やきとりに合う日本酒・焼酎・クラフトビールを厳選。素材の旨みを引き立てます。</div>
+ </div>
+ </div>
+ </div>
+ </div>
 </section>
 
 <!-- SCENE -->
 <section class="scene">
-  <div class="container">
-    <div class="sec-label">Scene</div>
-    <h2 class="sec-title">あらゆる場面で</h2>
-    <div class="scene-grid">
-      <div class="scene-card reveal">
-        <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/seat1.jpg" alt="宴会">
-        <div class="scene-mask"><span class="scene-name">宴会・飲み会</span></div>
-      </div>
-      <div class="scene-card reveal">
-        <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/seat2.jpg" alt="接待">
-        <div class="scene-mask"><span class="scene-name">接待・会食</span></div>
-      </div>
-      <div class="scene-card reveal">
-        <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/seat3.jpg" alt="女子会">
-        <div class="scene-mask"><span class="scene-name">女子会・記念日</span></div>
-      </div>
-    </div>
-  </div>
+ <div class="container">
+ <div class="sec-label">Scene</div>
+ <h2 class="sec-title">あらゆる場面で</h2>
+ <div class="scene-grid">
+ <div class="scene-card reveal">
+ <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/seat1.jpg" alt="宴会">
+ <div class="scene-mask"><span class="scene-name">宴会・飲み会</span></div>
+ </div>
+ <div class="scene-card reveal">
+ <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/seat2.jpg" alt="接待">
+ <div class="scene-mask"><span class="scene-name">接待・会食</span></div>
+ </div>
+ <div class="scene-card reveal">
+ <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/seat3.jpg" alt="女子会">
+ <div class="scene-mask"><span class="scene-name">女子会・記念日</span></div>
+ </div>
+ </div>
+ </div>
 </section>
 
 <!-- NEWS -->
 <section class="news-sec">
-  <div class="container">
-    <div class="sec-label">News</div>
-    <h2 class="sec-title">お知らせ</h2>
-    <div class="news-list reveal">
-      <a href="#" class="news-row">
-        <span class="news-date">2026.06.10</span>
-        <span class="news-cat">新メニュー</span>
-        <span class="news-ttl">2026年春夏グランドメニューをリリースしました</span>
-        <span class="news-arr">→</span>
-      </a>
-      <a href="#" class="news-row">
-        <span class="news-date">2026.05.28</span>
-        <span class="news-cat">お知らせ</span>
-        <span class="news-ttl">渋谷エリアに新店舗オープン予定のお知らせ</span>
-        <span class="news-arr">→</span>
-      </a>
-      <a href="#" class="news-row">
-        <span class="news-date">2026.05.15</span>
-        <span class="news-cat">キャンペーン</span>
-        <span class="news-ttl">創業記念キャンペーン：王様レバー特別価格で提供中</span>
-        <span class="news-arr">→</span>
-      </a>
-      <a href="#" class="news-row">
-        <span class="news-date">2026.04.01</span>
-        <span class="news-cat">ブログ</span>
-        <span class="news-ttl">大山どりの生産者を訪ねて — 鳥取・大山の旅レポート</span>
-        <span class="news-arr">→</span>
-      </a>
-    </div>
-    <div style="text-align:center;margin-top:44px;">
-      <a href="#" class="btn-line" style="display:inline-block;">ニュース一覧を見る</a>
-    </div>
-  </div>
+ <div class="container">
+ <div class="sec-label">News</div>
+ <h2 class="sec-title">お知らせ</h2>
+ <div class="news-list reveal">
+ <a href="#" class="news-row">
+ <span class="news-date">2026.06.10</span>
+ <span class="news-cat">新メニュー</span>
+ <span class="news-ttl">2026年春夏グランドメニューをリリースしました</span>
+ <span class="news-arr">→</span>
+ </a>
+ <a href="#" class="news-row">
+ <span class="news-date">2026.05.28</span>
+ <span class="news-cat">お知らせ</span>
+ <span class="news-ttl">渋谷エリアに新店舗オープン予定のお知らせ</span>
+ <span class="news-arr">→</span>
+ </a>
+ <a href="#" class="news-row">
+ <span class="news-date">2026.05.15</span>
+ <span class="news-cat">キャンペーン</span>
+ <span class="news-ttl">創業記念キャンペーン：王様レバー特別価格で提供中</span>
+ <span class="news-arr">→</span>
+ </a>
+ <a href="#" class="news-row">
+ <span class="news-date">2026.04.01</span>
+ <span class="news-cat">ブログ</span>
+ <span class="news-ttl">大山どりの生産者を訪ねて — 鳥取・大山の旅レポート</span>
+ <span class="news-arr">→</span>
+ </a>
+ </div>
+ <div style="text-align:center;margin-top:44px;">
+ <a href="#" class="btn-line" style="display:inline-block;">ニュース一覧を見る</a>
+ </div>
+ </div>
 </section>
 
 <!-- BLOG -->
 <section class="blog-sec">
-  <div class="container">
-    <div class="blog-head">
-      <div>
-        <div class="sec-label">Blog</div>
-        <h2 class="sec-title">すみれの日々</h2>
-      </div>
-      <a href="#" class="all-link">ブログ一覧 →</a>
-    </div>
-    <div class="blog-grid">
-      <a href="#" class="blog-card reveal">
-        <div class="blog-thumb">
-          <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy1.jpg" alt="大山どり生産者訪問">
-          <span class="blog-cat">産地レポート</span>
-        </div>
-        <div class="blog-body">
-          <span class="blog-date">2026.06.05</span>
-          <p class="blog-ttl">大山どりの生産者を訪ねて —<br>鳥取・大山の旅レポート</p>
-          <p class="blog-excerpt">すみれが使う大山どりがどのように育てられているか、実際に産地を訪れてきました。牧場の広大な自然と、生産者のこだわりをレポートします。</p>
-          <span class="blog-readmore">READ MORE</span>
-        </div>
-      </a>
-      <a href="#" class="blog-card reveal">
-        <div class="blog-thumb">
-          <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/smile2021GM_shio.jpg" alt="春夏メニュー">
-          <span class="blog-cat">新メニュー</span>
-        </div>
-        <div class="blog-body">
-          <span class="blog-date">2026.05.20</span>
-          <p class="blog-ttl">2026年春夏メニューの見どころを<br>スタッフが徹底解説</p>
-          <p class="blog-excerpt">今シーズンの新メニューから特におすすめの一串を、開発担当スタッフが自ら語ります。こだわりの食材と仕込みのポイントもご紹介。</p>
-          <span class="blog-readmore">READ MORE</span>
-        </div>
-      </a>
-      <a href="#" class="blog-card reveal">
-        <div class="blog-thumb">
-          <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/seat1.jpg" alt="宴会活用術">
-          <span class="blog-cat">ご利用ガイド</span>
-        </div>
-        <div class="blog-body">
-          <span class="blog-date">2026.04.28</span>
-          <p class="blog-ttl">すみれをもっと楽しむ —<br>宴会・貸切の賢い活用術</p>
-          <p class="blog-excerpt">会社の飲み会から家族のお祝いまで、すみれをより楽しんでいただくためのシーン別おすすめプランをご紹介します。</p>
-          <span class="blog-readmore">READ MORE</span>
-        </div>
-      </a>
-    </div>
-  </div>
+ <div class="container">
+ <div class="blog-head">
+ <div>
+ <div class="sec-label">Blog</div>
+ <h2 class="sec-title">すみれの日々</h2>
+ </div>
+ <a href="#" class="all-link">ブログ一覧 →</a>
+ </div>
+ <div class="blog-grid">
+ <a href="#" class="blog-card reveal">
+ <div class="blog-thumb">
+ <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy1.jpg" alt="大山どり生産者訪問">
+ <span class="blog-cat">産地レポート</span>
+ </div>
+ <div class="blog-body">
+ <span class="blog-date">2026.06.05</span>
+ <p class="blog-ttl">大山どりの生産者を訪ねて —<br>鳥取・大山の旅レポート</p>
+ <p class="blog-excerpt">すみれが使う大山どりがどのように育てられているか、実際に産地を訪れてきました。牧場の広大な自然と、生産者のこだわりをレポートします。</p>
+ <span class="blog-readmore">READ MORE</span>
+ </div>
+ </a>
+ <a href="#" class="blog-card reveal">
+ <div class="blog-thumb">
+ <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/smile2021GM_shio.jpg" alt="春夏メニュー">
+ <span class="blog-cat">新メニュー</span>
+ </div>
+ <div class="blog-body">
+ <span class="blog-date">2026.05.20</span>
+ <p class="blog-ttl">2026年春夏メニューの見どころを<br>スタッフが徹底解説</p>
+ <p class="blog-excerpt">今シーズンの新メニューから特におすすめの一串を、開発担当スタッフが自ら語ります。こだわりの食材と仕込みのポイントもご紹介。</p>
+ <span class="blog-readmore">READ MORE</span>
+ </div>
+ </a>
+ <a href="#" class="blog-card reveal">
+ <div class="blog-thumb">
+ <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/seat1.jpg" alt="宴会活用術">
+ <span class="blog-cat">ご利用ガイド</span>
+ </div>
+ <div class="blog-body">
+ <span class="blog-date">2026.04.28</span>
+ <p class="blog-ttl">すみれをもっと楽しむ —<br>宴会・貸切の賢い活用術</p>
+ <p class="blog-excerpt">会社の飲み会から家族のお祝いまで、すみれをより楽しんでいただくためのシーン別おすすめプランをご紹介します。</p>
+ <span class="blog-readmore">READ MORE</span>
+ </div>
+ </a>
+ </div>
+ </div>
 </section>
 
 <!-- INSTAGRAM -->
 <section class="insta-sec">
-  <div class="container">
-    <div class="insta-head">
-      <div>
-        <div class="sec-label">Instagram</div>
-        <h2 class="sec-title" style="font-size:26px;">毎日更新中</h2>
-      </div>
-      <a href="#" class="insta-follow">
-        <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/icon_instagram.png" style="height:18px" onerror="this.replaceWith(document.createTextNode('📷'))">
-        @yakitori_sumire
-      </a>
-    </div>
-    <!-- WordPress実装時：[instagram-feed num=6 cols=6 showheader=false showbutton=false] -->
-    <div class="insta-grid reveal" id="insta-feed">
-      <div class="insta-cell"><img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy4.jpg" alt=""><div class="insta-hover">♥</div></div>
-      <div class="insta-cell"><img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy5.jpg" alt=""><div class="insta-hover">♥</div></div>
-      <div class="insta-cell"><img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy1.jpg" alt=""><div class="insta-hover">♥</div></div>
-      <div class="insta-cell"><img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy2.jpg" alt=""><div class="insta-hover">♥</div></div>
-      <div class="insta-cell"><img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/seat1.jpg" alt=""><div class="insta-hover">♥</div></div>
-      <div class="insta-cell"><img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/seat2.jpg" alt=""><div class="insta-hover">♥</div></div>
-    </div>
-    <p class="insta-note">※ WordPress実装時はSmash Balloon「Instagram Feed」プラグインで最新6投稿が自動表示されます</p>
-  </div>
+ <div class="container">
+ <div class="insta-head">
+ <div>
+ <div class="sec-label">Instagram</div>
+ <h2 class="sec-title" style="font-size:26px;">毎日更新中</h2>
+ </div>
+ <a href="#" class="insta-follow">
+ <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/icon_instagram.png" style="height:18px" onerror="this.replaceWith(document.createTextNode(''))">
+ @yakitori_sumire
+ </a>
+ </div>
+ <!-- WordPress実装時：[instagram-feed num=6 cols=6 showheader=false showbutton=false] -->
+ <div class="insta-grid reveal" id="insta-feed">
+ <div class="insta-cell"><img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy4.jpg" alt=""><div class="insta-hover"></div></div>
+ <div class="insta-cell"><img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy5.jpg" alt=""><div class="insta-hover"></div></div>
+ <div class="insta-cell"><img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy1.jpg" alt=""><div class="insta-hover"></div></div>
+ <div class="insta-cell"><img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy2.jpg" alt=""><div class="insta-hover"></div></div>
+ <div class="insta-cell"><img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/seat1.jpg" alt=""><div class="insta-hover"></div></div>
+ <div class="insta-cell"><img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/seat2.jpg" alt=""><div class="insta-hover"></div></div>
+ </div>
+ <p class="insta-note">※ WordPress実装時はSmash Balloon「Instagram Feed」プラグインで最新6投稿が自動表示されます</p>
+ </div>
 </section>
 
 <!-- RESERVE CTA -->
 <div class="reserve-cta">
-  <div class="container">
-    <h2>今夜の席、ご予約はこちら</h2>
-    <p>各種予約サービス・お電話からご予約いただけます</p>
-    <div class="reserve-services">
-      <a href="#" class="r-service"><div class="svc-name">食べログ</div><div class="svc-sub">TABELOG RESERVE</div></a>
-      <a href="#" class="r-service"><div class="svc-name">ホットペッパー</div><div class="svc-sub">HOT PEPPER RESERVE</div></a>
-      <a href="#" class="r-service"><div class="svc-name">Tablecheck</div><div class="svc-sub">DIRECT RESERVE</div></a>
-      <a href="#" class="r-service highlight"><div class="svc-name">店舗に電話</div><div class="svc-sub">CALL RESERVE</div></a>
-    </div>
-  </div>
+ <div class="container">
+ <h2>今夜の席、ご予約はこちら</h2>
+ <p>各種予約サービス・お電話からご予約いただけます</p>
+ <div class="reserve-services">
+ <a href="#" class="r-service"><div class="svc-name">食べログ</div><div class="svc-sub">TABELOG RESERVE</div></a>
+ <a href="#" class="r-service"><div class="svc-name">ホットペッパー</div><div class="svc-sub">HOT PEPPER RESERVE</div></a>
+ <a href="#" class="r-service"><div class="svc-name">Tablecheck</div><div class="svc-sub">DIRECT RESERVE</div></a>
+ <a href="#" class="r-service highlight"><div class="svc-name">店舗に電話</div><div class="svc-sub">CALL RESERVE</div></a>
+ </div>
+ </div>
 </div>
 
 <!-- FOOTER -->
 <footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <img class="footer-brand-logo" src="https://y-smile.co.jp/wp-content/themes/sumire/img/footer-new-logo.png" alt="やきとり家すみれ" onerror="this.style.display='none'">
-        <p>鳥取県産大山どりを使った本格炭火やきとりの専門店。2009年の創業以来、素材とこだわりを大切に全国76店舗を展開しています。</p>
-      </div>
-      <div class="footer-col">
-        <h4>メニュー</h4>
-        <ul>
-          <li><a href="#">おすすめ・看板メニュー</a></li>
-          <li><a href="#">宴会コース</a></li>
-          <li><a href="#">ドリンクメニュー</a></li>
-          <li><a href="#">テイクアウト</a></li>
-          <li><a href="#">期間限定メニュー</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>ご利用案内</h4>
-        <ul>
-          <li><a href="#">ご利用シーン</a></li>
-          <li><a href="#">店舗検索</a></li>
-          <li><a href="#">ご予約</a></li>
-          <li><a href="#">テイクアウト・デリバリー</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>会社情報</h4>
-        <ul>
-          <li><a href="#">ブランドストーリー</a></li>
-          <li><a href="#">ニュース</a></li>
-          <li><a href="#">採用情報</a></li>
-          <li><a href="#">FC加盟・物件募集</a></li>
-          <li><a href="#">プライバシーポリシー</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">© 2026 株式会社すみれ All Rights Reserved.</span>
-      <div class="footer-sns">
-        <a href="#" class="f-sns">📷</a>
-        <a href="#" class="f-sns">𝕏</a>
-      </div>
-    </div>
-  </div>
+ <div class="container">
+ <div class="footer-grid">
+ <div class="footer-brand">
+ <img class="footer-brand-logo" src="https://y-smile.co.jp/wp-content/themes/sumire/img/footer-new-logo.png" alt="やきとり家すみれ" onerror="this.style.display='none'">
+ <p>鳥取県産大山どりを使った本格炭火やきとりの専門店。2009年の創業以来、素材とこだわりを大切に全国76店舗を展開しています。</p>
+ </div>
+ <div class="footer-col">
+ <h4>メニュー</h4>
+ <ul>
+ <li><a href="#">おすすめ・看板メニュー</a></li>
+ <li><a href="#">宴会コース</a></li>
+ <li><a href="#">ドリンクメニュー</a></li>
+ <li><a href="#">テイクアウト</a></li>
+ <li><a href="#">期間限定メニュー</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>ご利用案内</h4>
+ <ul>
+ <li><a href="#">ご利用シーン</a></li>
+ <li><a href="#">店舗検索</a></li>
+ <li><a href="#">ご予約</a></li>
+ <li><a href="#">テイクアウト・デリバリー</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>会社情報</h4>
+ <ul>
+ <li><a href="#">ブランドストーリー</a></li>
+ <li><a href="#">ニュース</a></li>
+ <li><a href="#">採用情報</a></li>
+ <li><a href="#">FC加盟・物件募集</a></li>
+ <li><a href="#">プライバシーポリシー</a></li>
+ </ul>
+ </div>
+ </div>
+ <div class="footer-bottom">
+ <span class="footer-copy">© 2026 株式会社すみれ All Rights Reserved.</span>
+ <div class="footer-sns">
+ <a href="#" class="f-sns"></a>
+ <a href="#" class="f-sns">𝕏</a>
+ </div>
+ </div>
+ </div>
 </footer>
 
 <script>
-  // Header scroll
-  const hdr = document.getElementById('hdr');
-  window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 50));
+ // Header scroll
+ const hdr = document.getElementById('hdr');
+ window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 50));
 
-  // Mobile nav
-  function openNav() { document.getElementById('mobileNav').classList.add('open'); document.body.style.overflow='hidden'; }
-  function closeNav() { document.getElementById('mobileNav').classList.remove('open'); document.body.style.overflow=''; }
+ // Mobile nav
+ function openNav() { document.getElementById('mobileNav').classList.add('open'); document.body.style.overflow='hidden'; }
+ function closeNav() { document.getElementById('mobileNav').classList.remove('open'); document.body.style.overflow=''; }
 
-  // ハンバーガーボタンはモバイルのみ表示
-  const menuBtn = document.getElementById('menuBtn');
-  function checkMobile() { menuBtn.style.display = window.innerWidth <= 768 ? 'flex' : 'none'; }
-  checkMobile();
-  window.addEventListener('resize', checkMobile);
+ // ハンバーガーボタンはモバイルのみ表示
+ const menuBtn = document.getElementById('menuBtn');
+ function checkMobile() { menuBtn.style.display = window.innerWidth <= 768 ? 'flex' : 'none'; }
+ checkMobile();
+ window.addEventListener('resize', checkMobile);
 
-  // Tab switching
-  function switchTab(name) {
-    document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.tab-panel').forEach(p => p.style.display = 'none');
-    document.querySelector(`[data-tab="${name}"]`).classList.add('active');
-    document.getElementById(`tab-${name}`).style.display = 'block';
-  }
-  document.querySelectorAll('.menu-tab').forEach(tab => {
-    tab.addEventListener('click', () => switchTab(tab.dataset.tab));
-  });
+ // Tab switching
+ function switchTab(name) {
+ document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+ document.querySelectorAll('.tab-panel').forEach(p => p.style.display = 'none');
+ document.querySelector(`[data-tab="${name}"]`).classList.add('active');
+ document.getElementById(`tab-${name}`).style.display = 'block';
+ }
+ document.querySelectorAll('.menu-tab').forEach(tab => {
+ tab.addEventListener('click', () => switchTab(tab.dataset.tab));
+ });
 
-  // Hero slideshow
-  const slides = document.querySelectorAll('.hero-slide');
-  const dots   = document.querySelectorAll('.hero-dot');
-  let cur = 0;
-  function goSlide(n) {
-    slides[cur].classList.remove('active');
-    dots[cur].classList.remove('active');
-    cur = n;
-    slides[cur].classList.add('active');
-    dots[cur].classList.add('active');
-  }
-  dots.forEach(d => d.addEventListener('click', () => goSlide(+d.dataset.i)));
-  setInterval(() => goSlide((cur + 1) % slides.length), 5000);
+ // Hero slideshow
+ const slides = document.querySelectorAll('.hero-slide');
+ const dots = document.querySelectorAll('.hero-dot');
+ let cur = 0;
+ function goSlide(n) {
+ slides[cur].classList.remove('active');
+ dots[cur].classList.remove('active');
+ cur = n;
+ slides[cur].classList.add('active');
+ dots[cur].classList.add('active');
+ }
+ dots.forEach(d => d.addEventListener('click', () => goSlide(+d.dataset.i)));
+ setInterval(() => goSlide((cur + 1) % slides.length), 5000);
 
-  // Scroll reveal
-  const revs = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('in'), i * 90);
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  revs.forEach(r => io.observe(r));
+ // Scroll reveal
+ const revs = document.querySelectorAll('.reveal');
+ const io = new IntersectionObserver((entries) => {
+ entries.forEach((e, i) => {
+ if (e.isIntersecting) {
+ setTimeout(() => e.target.classList.add('in'), i * 90);
+ io.unobserve(e.target);
+ }
+ });
+ }, { threshold: 0.12 });
+ revs.forEach(r => io.observe(r));
 </script>
 </body>
 </html>
