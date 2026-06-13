@@ -382,119 +382,123 @@
     .reveal { opacity:0; transform:translateY(28px); transition:opacity .8s ease, transform .8s ease; }
     .reveal.in { opacity:1; transform:translateY(0); }
 
+    /* ========== ハンバーガーボタン（デフォルト非表示） ========== */
+    .mobile-menu-btn { display: none; }
+    .mobile-nav { display: none; }
+
     /* ========== MOBILE ========== */
     @media (max-width: 768px) {
-      /* Header */
-      header { padding: 14px 20px; }
-      header.scrolled { padding: 12px 20px; }
-      nav { display: none; }
-      .mobile-menu-btn {
-        display: flex; flex-direction: column; gap: 5px; cursor: pointer;
-        padding: 4px; z-index: 200;
-      }
-      .mobile-menu-btn span {
-        display: block; width: 24px; height: 2px; background: #fff;
-        transition: all .3s;
-      }
-      /* モバイルメニュー開閉 */
-      .mobile-nav {
-        display: none; position: fixed; inset: 0; background: rgba(14,14,14,.97);
-        z-index: 150; flex-direction: column; align-items: center; justify-content: center;
-        gap: 32px;
-      }
-      .mobile-nav.open { display: flex; }
-      .mobile-nav a {
-        color: #fff; text-decoration: none; font-size: 20px; letter-spacing: .12em;
-        font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
-      }
-      .mobile-nav .btn-reserve {
-        background: var(--amber); color: #fff; padding: 14px 40px;
-        font-size: 15px; font-weight: 700; border-radius: 2px;
-      }
-      .mobile-nav-close {
-        position: absolute; top: 20px; right: 20px;
-        font-size: 28px; color: #fff; cursor: pointer; background: none; border: none;
-      }
 
-      /* Hero */
-      .hero { align-items: flex-end; justify-content: flex-start; }
-      .hero-content { padding: 0 20px 60px; gap: 14px; max-width: 100%; }
-      .hero-tag { font-size: 10px; letter-spacing: .1em; padding: 6px 12px; }
-      .hero-title { font-size: 36px; letter-spacing: .04em; line-height: 1.2; }
-      .hero-title .sub-line { font-size: 16px; letter-spacing: .1em; margin-top: 4px; }
-      .hero-copy { font-size: 12px; letter-spacing: .04em; line-height: 1.8; padding-left: 12px; }
-      .hero-stats { gap: 20px; }
-      .hero-stat .num { font-size: 24px; }
-      .hero-stat .label { font-size: 9px; letter-spacing: .08em; }
-      .hero-cta { flex-direction: column; gap: 10px; width: 100%; }
-      .btn-amber, .btn-gold, .btn-line {
-        padding: 14px 20px; font-size: 13px; text-align: center; letter-spacing: .1em;
-        width: 100%;
+      /* ── Header ── */
+      header { padding: 14px 20px !important; }
+      header nav { display: none !important; }
+      .mobile-menu-btn {
+        display: flex !important; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px;
       }
-      .hero-dots { right: 16px; bottom: 20px; }
+      .mobile-menu-btn span { display: block; width: 24px; height: 2px; background: #fff; }
+
+      /* ── モバイルメニュー ── */
+      .mobile-nav {
+        position: fixed; inset: 0; background: rgba(14,14,14,.97);
+        z-index: 150; flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+      }
+      .mobile-nav.open { display: flex !important; }
+      .mobile-nav a { color: #fff; text-decoration: none; font-size: 18px; letter-spacing: .08em; font-family: 'Hiragino Kaku Gothic ProN', sans-serif; }
+      .mobile-nav .btn-reserve { background: var(--amber); color: #fff !important; padding: 14px 40px; font-size: 15px; font-weight: 700; border-radius: 2px; }
+      .mobile-nav-close { position: absolute; top: 20px; right: 20px; font-size: 28px; color: #fff; cursor: pointer; background: none; border: none; }
+
+      /* ── 全体のletter-spacing リセット ── */
+      * { letter-spacing: 0.02em !important; }
+      .sec-label, .hero-eyebrow, .menu-cat, .kodawari-num, .blog-date,
+      .news-date, .footer-col h4, .footer-copy, .svc-sub, .r-service .svc-sub { letter-spacing: 0.08em !important; }
+
+      /* ── Hero ── */
+      .hero { align-items: flex-end; justify-content: flex-start; }
+      .hero-content { padding: 0 20px 56px; gap: 12px; max-width: 100%; }
+      .hero-tag { font-size: 11px; padding: 6px 12px; }
+      .hero-title { font-size: 34px; line-height: 1.2; }
+      .hero-title .sub-line { font-size: 15px; margin-top: 4px; }
+      .hero-copy { font-size: 12px; line-height: 1.8; padding-left: 10px; }
+      .hero-stats { gap: 16px; }
+      .hero-stat .num { font-size: 22px; }
+      .hero-stat .label { font-size: 9px; }
+      .hero-cta { flex-direction: column; gap: 10px; width: 100%; }
+      .btn-amber, .btn-gold, .btn-line { padding: 14px 20px; font-size: 14px; text-align: center; width: 100%; display: block; }
+      .hero-dots { right: 16px; bottom: 16px; }
       .scroll-hint { display: none; }
 
-      /* Ticker */
-      .ticker-item { font-size: 10px; letter-spacing: .1em; }
+      /* ── Ticker ── */
+      .ticker-item { font-size: 11px; }
 
-      /* Sections */
-      section { padding: 56px 0; }
-      .container { padding: 0 20px; }
-      .sec-label { font-size: 9px; letter-spacing: .3em; }
-      .sec-title { font-size: 22px; letter-spacing: .06em; }
+      /* ── Sections ── */
+      section { padding: 52px 0; }
+      .container { padding: 0 18px; }
+      .sec-label { font-size: 9px; margin-bottom: 10px; }
+      .sec-title { font-size: 22px; line-height: 1.4; }
 
-      /* Story */
-      .story-grid { grid-template-columns: 1fr; gap: 28px; }
+      /* ── Story ── */
+      .story-grid { grid-template-columns: 1fr; gap: 24px; }
       .story-img-wrap { aspect-ratio: 16/9; }
-      .story-badge { left: 12px; bottom: 12px; padding: 12px 16px; }
-      .story-badge .num { font-size: 24px; }
-      .story-body { font-size: 13px; line-height: 2; }
+      .story-badge { left: 10px; bottom: 10px; padding: 10px 14px; }
+      .story-badge .num { font-size: 22px; }
+      .story-body { font-size: 13px; line-height: 1.9; }
+      .story-tags { gap: 8px; }
+      .tag { font-size: 10px; padding: 5px 10px; }
 
-      /* Menu */
-      .menu-head { flex-direction: column; align-items: flex-start; gap: 8px; margin-bottom: 24px; }
-      .menu-tabs { gap: 0; overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
+      /* ── Menu ── */
+      .menu-head { flex-direction: column; align-items: flex-start; gap: 6px; margin-bottom: 20px; }
+      .menu-tabs { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; padding-bottom: 2px; }
       .menu-tabs::-webkit-scrollbar { display: none; }
-      .menu-tab { padding: 10px 16px; font-size: 11px; letter-spacing: .06em; white-space: nowrap; }
+      .menu-tab { padding: 10px 14px; font-size: 12px; white-space: nowrap; }
       .menu-hero-grid { grid-template-columns: 1fr; }
       .menu-card-lg { aspect-ratio: 4/3; }
       .menu-grid { grid-template-columns: 1fr 1fr; }
-      .menu-name { font-size: 15px; letter-spacing: .06em; }
-      .menu-price .num { font-size: 18px; }
+      .menu-name { font-size: 14px; }
+      .menu-price .num { font-size: 17px; }
+      .menu-badge { font-size: 9px; padding: 4px 8px; }
       .menu-desc { display: none; }
 
-      /* Kodawari */
-      .kodawari-grid { grid-template-columns: 1fr; }
+      /* ── Kodawari ── */
+      .kodawari-grid { grid-template-columns: 1fr; gap: 2px; }
+      .kodawari-item { aspect-ratio: 16/9; }
       .kodawari-title { font-size: 16px; }
-      .kodawari-body { font-size: 12px; }
+      .kodawari-body { font-size: 12px; line-height: 1.7; }
 
-      /* Scene */
-      .scene-grid { grid-template-columns: 1fr 1fr; }
-      .scene-name { font-size: 12px; letter-spacing: .1em; }
+      /* ── Scene ── */
+      .scene-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
+      .scene-name { font-size: 13px; }
 
-      /* News */
-      .news-row { grid-template-columns: 80px 1fr; gap: 12px; }
-      .news-date { font-size: 10px; }
-      .news-cat { display: none; }
-      .news-ttl { font-size: 12px; grid-column: 1 / -1; margin-top: -8px; }
+      /* ── News ── */
+      .news-row { display: flex; flex-direction: column; gap: 6px; padding: 16px 0; }
+      .news-date { font-size: 11px; color: var(--text-muted); }
+      .news-cat { font-size: 9px; width: fit-content; }
+      .news-ttl { font-size: 13px; line-height: 1.6; }
       .news-arr { display: none; }
 
-      /* Blog */
-      .blog-head { flex-direction: column; align-items: flex-start; gap: 8px; margin-bottom: 28px; }
-      .blog-grid { grid-template-columns: 1fr; gap: 32px; }
-      .blog-ttl { font-size: 14px; }
+      /* ── Blog ── */
+      .blog-head { flex-direction: column; align-items: flex-start; gap: 6px; margin-bottom: 24px; }
+      .blog-grid { grid-template-columns: 1fr !important; gap: 28px; }
+      .blog-ttl { font-size: 15px; line-height: 1.6; }
+      .blog-excerpt { font-size: 12px; line-height: 1.7; }
 
-      /* Instagram */
-      .insta-grid { grid-template-columns: repeat(3, 1fr); }
+      /* ── Instagram ── */
+      .insta-grid { grid-template-columns: repeat(3, 1fr); gap: 2px; }
+      .insta-head { flex-direction: column; align-items: flex-start; gap: 8px; margin-bottom: 20px; }
 
-      /* Reserve CTA */
-      .reserve-cta h2 { font-size: 22px; letter-spacing: .08em; }
-      .reserve-cta p { font-size: 12px; letter-spacing: .06em; }
-      .reserve-services { flex-direction: column; align-items: stretch; gap: 10px; }
-      .r-service { padding: 16px 20px; }
+      /* ── Reserve CTA ── */
+      .reserve-cta { padding: 60px 0; }
+      .reserve-cta h2 { font-size: 22px; line-height: 1.4; margin-bottom: 12px; }
+      .reserve-cta p { font-size: 12px; margin-bottom: 32px; }
+      .reserve-services { flex-direction: column; gap: 10px; }
+      .r-service { padding: 18px 20px; }
+      .r-service .svc-name { font-size: 16px; }
 
-      /* Footer */
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      /* ── Footer ── */
+      .footer-grid { grid-template-columns: 1fr !important; gap: 36px; }
+      .footer-col ul { gap: 10px; }
+      .footer-col ul li a { font-size: 13px; }
       .footer-bottom { flex-direction: column; gap: 16px; align-items: flex-start; }
+      .footer-brand p { font-size: 12px; line-height: 1.8; }
     }
   </style>
 </head>
