@@ -9,14 +9,17 @@
 
     :root {
       --black:   #0E0E0E;
-      --dark:    #1A1A1A;
-      --smoke:   #242424;
-      --mid:     #333333;
+      --dark:    #1C1A18;
+      --smoke:   #252220;
+      --mid:     #333030;
+      --amber:   #E8892A;
+      --amber-lt:#F5AC5A;
       --gold:    #C8A95A;
       --gold-lt: #E2C97E;
       --cream:   #F5F0E8;
+      --warm-red:#C0392B;
       --text-muted: rgba(255,255,255,0.5);
-      --text-dim:   rgba(255,255,255,0.72);
+      --text-dim:   rgba(255,255,255,0.78);
     }
 
     html { scroll-behavior: smooth; }
@@ -64,75 +67,105 @@
     .btn-reserve:hover { background:var(--gold-lt); transform:translateY(-1px); }
 
     /* ===== HERO ===== */
-    .hero { height:100vh; position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+    .hero { height:100vh; position:relative; display:flex; align-items:flex-end; justify-content:flex-start; overflow:hidden; }
     .hero-slides { position:absolute; inset:0; }
     .hero-slide {
-      position:absolute; inset:0; opacity:0; transition:opacity 1.2s ease;
+      position:absolute; inset:0; opacity:0; transition:opacity 1.4s ease;
       background-size:cover; background-position:center;
     }
     .hero-slide.active { opacity:1; }
     .hero-slide::after {
       content:''; position:absolute; inset:0;
-      background: linear-gradient(180deg, rgba(14,14,14,.25) 0%, rgba(14,14,14,.55) 55%, rgba(14,14,14,.88) 100%);
+      background: linear-gradient(105deg, rgba(14,14,14,.82) 0%, rgba(14,14,14,.4) 55%, rgba(14,14,14,.15) 100%),
+                  linear-gradient(180deg, rgba(14,14,14,.1) 0%, rgba(14,14,14,.75) 100%);
     }
     .hero-slide-1 { background-image: url('https://y-smile.co.jp/wp-content/uploads/2025/11/588093856831504606.jpg'); }
     .hero-slide-2 { background-image: url('https://y-smile.co.jp/wp-content/uploads/2025/07/%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%80%E3%83%BC2.jpg'); }
     .hero-slide-3 { background-image: url('https://y-smile.co.jp/wp-content/uploads/2025/11/588094607477702709.jpg'); }
 
+    /* 炎グロー演出 */
+    .hero-glow {
+      position:absolute; bottom:0; left:0; right:0; height:40%; z-index:2;
+      background: linear-gradient(180deg, transparent 0%, rgba(232,137,42,.08) 60%, rgba(232,137,42,.18) 100%);
+      pointer-events:none;
+    }
+
     .hero-content {
-      position:relative; z-index:10; text-align:center;
-      display:flex; flex-direction:column; align-items:center; gap:24px;
+      position:relative; z-index:10;
+      padding: 0 60px 80px;
+      display:flex; flex-direction:column; align-items:flex-start; gap:20px;
+      max-width: 680px;
     }
-    .hero-eyebrow {
-      display:inline-flex; align-items:center; gap:14px;
-      font-size:10px; letter-spacing:.45em; color:var(--gold);
-      font-family:Georgia,serif; text-transform:uppercase;
-      animation: fadein 1s ease .3s both;
+    .hero-tag {
+      display:inline-flex; align-items:center; gap:10px;
+      background:var(--amber); color:var(--black);
+      font-size:11px; letter-spacing:.22em; font-weight:700;
+      padding:7px 16px; font-family:'Hiragino Kaku Gothic ProN',sans-serif;
+      animation: fadein .8s ease .2s both;
     }
-    .hero-eyebrow span { display:block; width:28px; height:1px; background:var(--gold); opacity:.6; }
     .hero-title {
-      font-size: clamp(50px,7vw,90px); font-weight:300; letter-spacing:.22em;
-      line-height:1.2; text-shadow:0 4px 32px rgba(0,0,0,.6);
-      animation: fadeup 1s ease .55s both;
+      font-size: clamp(48px,6.5vw,88px); font-weight:400; letter-spacing:.08em;
+      line-height:1.15; text-shadow:0 2px 24px rgba(0,0,0,.5);
+      animation: fadeup 1s ease .4s both;
     }
-    .hero-title em { font-style:normal; color:var(--gold); }
+    .hero-title em { font-style:normal; color:var(--amber); }
+    .hero-title .sub-line {
+      display:block; font-size:clamp(22px,3vw,38px); font-weight:300;
+      letter-spacing:.25em; color:rgba(255,255,255,.85); margin-top:6px;
+    }
     .hero-copy {
-      font-size:14px; color:var(--text-dim); letter-spacing:.12em; line-height:2;
-      animation: fadeup 1s ease .8s both; max-width:460px;
+      font-size:14px; color:var(--text-dim); letter-spacing:.1em; line-height:2;
+      animation: fadeup 1s ease .65s both;
       font-family:'Hiragino Kaku Gothic ProN',sans-serif;
+      border-left:3px solid var(--amber); padding-left:16px;
     }
-    .hero-cta { display:flex; gap:14px; margin-top:6px; animation: fadeup 1s ease 1s both; }
-    .btn-gold {
-      background:var(--gold); color:var(--black); padding:15px 38px;
-      font-size:12px; letter-spacing:.22em; font-weight:700;
+    .hero-stats {
+      display:flex; gap:32px; animation: fadeup 1s ease .8s both;
+    }
+    .hero-stat { display:flex; flex-direction:column; gap:2px; }
+    .hero-stat .num { font-size:32px; font-weight:300; color:var(--amber); line-height:1; }
+    .hero-stat .label { font-size:10px; letter-spacing:.2em; color:var(--text-muted); font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
+    .hero-stat-sep { width:1px; background:rgba(255,255,255,.15); align-self:stretch; }
+
+    .hero-cta { display:flex; gap:12px; margin-top:4px; animation: fadeup 1s ease 1s both; }
+    .btn-amber {
+      background:var(--amber); color:#fff; padding:16px 36px;
+      font-size:13px; letter-spacing:.16em; font-weight:700;
       text-decoration:none; font-family:'Hiragino Kaku Gothic ProN',sans-serif;
-      transition:background .25s, transform .2s;
+      transition:background .25s, transform .2s; border-radius:2px;
+    }
+    .btn-amber:hover { background:var(--amber-lt); transform:translateY(-2px); }
+    .btn-gold {
+      background:var(--gold); color:var(--black); padding:16px 36px;
+      font-size:13px; letter-spacing:.16em; font-weight:700;
+      text-decoration:none; font-family:'Hiragino Kaku Gothic ProN',sans-serif;
+      transition:background .25s, transform .2s; border-radius:2px;
     }
     .btn-gold:hover { background:var(--gold-lt); transform:translateY(-2px); }
     .btn-line {
-      border:1px solid rgba(255,255,255,.38); color:#fff; padding:15px 38px;
-      font-size:12px; letter-spacing:.22em; text-decoration:none;
+      border:1px solid rgba(255,255,255,.38); color:#fff; padding:16px 36px;
+      font-size:13px; letter-spacing:.16em; text-decoration:none; border-radius:2px;
       font-family:'Hiragino Kaku Gothic ProN',sans-serif; transition:border-color .25s, color .25s;
     }
-    .btn-line:hover { border-color:var(--gold); color:var(--gold); }
+    .btn-line:hover { border-color:var(--amber); color:var(--amber); }
 
     .hero-dots {
-      position:absolute; bottom:36px; left:50%; transform:translateX(-50%);
+      position:absolute; bottom:36px; right:52px;
       display:flex; gap:8px; z-index:10;
     }
     .hero-dot {
       width:24px; height:2px; background:rgba(255,255,255,.3); cursor:pointer;
       transition:background .3s, width .3s;
     }
-    .hero-dot.active { background:var(--gold); width:40px; }
+    .hero-dot.active { background:var(--amber); width:40px; }
 
     .scroll-hint {
-      position:absolute; bottom:36px; right:52px; z-index:10;
-      display:flex; flex-direction:column; align-items:center; gap:8px;
+      position:absolute; bottom:40px; left:50%; transform:translateX(-50%);
+      display:flex; flex-direction:column; align-items:center; gap:8px; z-index:10;
       animation: fadein 1.5s ease 1.2s both;
     }
-    .scroll-hint span { font-size:9px; letter-spacing:.4em; color:var(--text-muted); writing-mode:vertical-rl; }
-    .scroll-line { width:1px; height:50px; background:linear-gradient(180deg,var(--gold),transparent); animation:scrollpulse 2s ease-in-out infinite; }
+    .scroll-hint span { font-size:9px; letter-spacing:.4em; color:var(--text-muted); }
+    .scroll-line { width:1px; height:44px; background:linear-gradient(180deg,var(--amber),transparent); animation:scrollpulse 2s ease-in-out infinite; }
     @keyframes scrollpulse { 0%,100%{opacity:1} 50%{opacity:.3} }
 
     /* ===== TICKER ===== */
@@ -173,25 +206,57 @@
     /* ===== MENU ===== */
     .menu-sec { background:var(--smoke); }
     .menu-head { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:48px; }
-    .all-link { font-size:11px; letter-spacing:.22em; color:var(--gold); text-decoration:none; font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
+    .all-link { font-size:11px; letter-spacing:.22em; color:var(--amber); text-decoration:none; font-family:'Hiragino Kaku Gothic ProN',sans-serif; display:flex; align-items:center; gap:6px; }
+    .all-link:hover { color:var(--amber-lt); }
+
+    /* メニュータブ */
+    .menu-tabs { display:flex; gap:0; margin-bottom:36px; border-bottom:1px solid rgba(255,255,255,.1); }
+    .menu-tab {
+      padding:12px 28px; font-size:12px; letter-spacing:.18em; cursor:pointer;
+      color:var(--text-muted); font-family:'Hiragino Kaku Gothic ProN',sans-serif;
+      border-bottom:2px solid transparent; transition:all .25s; margin-bottom:-1px;
+    }
+    .menu-tab.active { color:var(--amber); border-bottom-color:var(--amber); }
+    .menu-tab:hover { color:#fff; }
+
+    /* 大カード（看板メニュー）*/
+    .menu-hero-grid { display:grid; grid-template-columns:1fr 1fr; gap:3px; margin-bottom:3px; }
+    .menu-card-lg { position:relative; aspect-ratio:16/9; overflow:hidden; cursor:pointer; }
+    .menu-card-lg img { width:100%; height:100%; object-fit:cover; transition:transform .7s ease; }
+    .menu-card-lg:hover img { transform:scale(1.06); }
+
     .menu-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; }
-    .menu-card { position:relative; aspect-ratio:3/4; overflow:hidden; cursor:pointer; }
-    .menu-card img { width:100%; height:100%; object-fit:cover; transition:transform .7s ease; }
+    .menu-card { position:relative; overflow:hidden; cursor:pointer; }
+    .menu-card img { width:100%; height:100%; object-fit:cover; transition:transform .7s ease; display:block; }
     .menu-card:hover img { transform:scale(1.07); }
+
     .menu-overlay {
       position:absolute; inset:0;
-      background:linear-gradient(180deg,transparent 35%,rgba(14,14,14,.9) 100%);
-      display:flex; flex-direction:column; justify-content:flex-end; padding:26px;
+      background:linear-gradient(180deg,transparent 25%, rgba(20,16,12,.88) 100%);
+      display:flex; flex-direction:column; justify-content:flex-end; padding:22px;
     }
-    .menu-cat { font-size:9px; letter-spacing:.35em; color:var(--gold); margin-bottom:7px; font-family:Georgia,serif; }
-    .menu-name { font-size:19px; letter-spacing:.14em; }
-    .menu-price { font-size:12px; color:var(--text-muted); margin-top:4px; font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
+    .menu-badge {
+      position:absolute; top:14px; left:14px;
+      background:var(--amber); color:#fff;
+      font-size:9px; letter-spacing:.2em; padding:5px 12px;
+      font-family:'Hiragino Kaku Gothic ProN',sans-serif; font-weight:700;
+    }
+    .menu-badge.new { background:var(--warm-red); }
+    .menu-cat { font-size:9px; letter-spacing:.35em; color:var(--amber); margin-bottom:6px; font-family:Georgia,serif; }
+    .menu-name { font-size:20px; letter-spacing:.1em; line-height:1.3; }
+    .menu-price {
+      display:inline-flex; align-items:baseline; gap:4px; margin-top:6px;
+    }
+    .menu-price .yen { font-size:11px; color:var(--amber-lt); font-family:Georgia,serif; }
+    .menu-price .num { font-size:22px; color:var(--amber-lt); font-family:Georgia,serif; line-height:1; }
+    .menu-price .tax { font-size:10px; color:var(--text-muted); font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
     .menu-desc {
-      font-size:12px; line-height:1.8; color:rgba(255,255,255,.55); margin-top:10px;
+      font-size:12px; line-height:1.8; color:rgba(255,255,255,.6); margin-top:8px;
       max-height:0; overflow:hidden; transition:max-height .4s;
       font-family:'Hiragino Kaku Gothic ProN',sans-serif;
     }
-    .menu-card:hover .menu-desc { max-height:72px; }
+    .menu-card:hover .menu-desc,
+    .menu-card-lg:hover .menu-desc { max-height:80px; }
 
     /* ===== KODAWARI ===== */
     .kodawari { background:var(--dark); }
@@ -346,13 +411,36 @@
     <div class="hero-slide hero-slide-2"></div>
     <div class="hero-slide hero-slide-3"></div>
   </div>
+  <div class="hero-glow"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow"><span></span>鳥取県産 大山どり専門<span></span></div>
-    <h1 class="hero-title">炭火の<em>匠</em>が<br>紡ぐ一串</h1>
-    <p class="hero-copy">素材の声に耳を傾け、炭火が引き出す旨みを一串に込めて。<br>大山どりとともに歩んできた、すみれの15年。</p>
+    <div class="hero-tag">🔥 鳥取県産 大山どり専門</div>
+    <h1 class="hero-title">
+      今夜は、<em>すみれ</em>で。
+      <span class="sub-line">炭火やきとりと、うまい酒。</span>
+    </h1>
+    <p class="hero-copy">
+      鳥取大山の恵み、大山どりを炭火で一串ずつ丁寧に。<br>
+      気軽に、でも本物の味を。それがすみれのスタイル。
+    </p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="num">76</span>
+        <span class="label">全国店舗数</span>
+      </div>
+      <div class="hero-stat-sep"></div>
+      <div class="hero-stat">
+        <span class="num">15</span>
+        <span class="label">創業年数</span>
+      </div>
+      <div class="hero-stat-sep"></div>
+      <div class="hero-stat">
+        <span class="num">275</span>
+        <span class="label">王様レバー(円〜)</span>
+      </div>
+    </div>
     <div class="hero-cta">
-      <a href="#" class="btn-gold">メニューを見る</a>
-      <a href="#" class="btn-line">店舗を探す</a>
+      <a href="#" class="btn-amber">今すぐ予約する</a>
+      <a href="#" class="btn-line">メニューを見る</a>
     </div>
   </div>
   <div class="hero-dots">
@@ -428,36 +516,70 @@
     <div class="menu-head">
       <div>
         <div class="sec-label">Menu</div>
-        <h2 class="sec-title">看板の一串</h2>
+        <h2 class="sec-title">頼むべき一串、ある。</h2>
       </div>
-      <a href="#" class="all-link">メニュー一覧 →</a>
+      <a href="#" class="all-link">全メニューを見る →</a>
     </div>
-    <div class="menu-grid">
-      <div class="menu-card reveal">
-        <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/smile2021GM_shio.jpg" alt="塩焼き">
+
+    <!-- タブ -->
+    <div class="menu-tabs">
+      <div class="menu-tab active">🔥 看板メニュー</div>
+      <div class="menu-tab">🍶 ドリンク</div>
+      <div class="menu-tab">🎉 宴会コース</div>
+      <div class="menu-tab">📦 テイクアウト</div>
+    </div>
+
+    <!-- 看板2枚 大カード -->
+    <div class="menu-hero-grid reveal">
+      <div class="menu-card-lg">
+        <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/smile2021GM_shio.jpg" alt="王様レバー">
+        <span class="menu-badge">人気 No.1</span>
         <div class="menu-overlay">
           <div class="menu-cat">SIGNATURE</div>
           <div class="menu-name">王様レバー</div>
-          <div class="menu-price">1本 275円（税込）</div>
+          <div class="menu-price"><span class="yen">¥</span><span class="num">275</span><span class="tax">（税込）/ 本</span></div>
           <div class="menu-desc">臭みゼロ、濃厚な旨みがとろける看板商品。大山どりの鮮度だから実現するなめらかな食感。</div>
         </div>
       </div>
-      <div class="menu-card reveal">
-        <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/smile2021GM_tare.jpg" alt="タレ焼き">
+      <div class="menu-card-lg">
+        <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/smile2021GM_tare.jpg" alt="ひなトロ">
+        <span class="menu-badge new">幻の希少部位</span>
         <div class="menu-overlay">
           <div class="menu-cat">SIGNATURE</div>
           <div class="menu-name">ひなトロ</div>
-          <div class="menu-price">1本 264円（税込）</div>
-          <div class="menu-desc">幻の希少部位。口の中でとろける脂と、炭火の香りが絶妙に絡み合う一串。</div>
+          <div class="menu-price"><span class="yen">¥</span><span class="num">264</span><span class="tax">（税込）/ 本</span></div>
+          <div class="menu-desc">口の中でとろける脂と、炭火の香りが絶妙に絡み合う幻の一串。</div>
         </div>
       </div>
-      <div class="menu-card reveal">
-        <img src="https://y-smile.co.jp/wp-content/uploads/2024/11/6.jpg" alt="宴会コース">
+    </div>
+
+    <!-- 小カード3枚 -->
+    <div class="menu-grid reveal">
+      <div class="menu-card">
+        <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy2.jpg" alt="炭火やきとり" style="aspect-ratio:4/3">
+        <div class="menu-overlay">
+          <div class="menu-cat">CHARCOAL</div>
+          <div class="menu-name">炭火串盛り合わせ</div>
+          <div class="menu-price"><span class="yen">¥</span><span class="num">880</span><span class="tax">〜（5本）</span></div>
+          <div class="menu-desc">おすすめ部位を盛り合わせたセット。はじめての方はまずこれ。</div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy3.jpg" alt="ドリンク" style="aspect-ratio:4/3">
+        <div class="menu-overlay">
+          <div class="menu-cat">DRINK</div>
+          <div class="menu-name">こだわりドリンク</div>
+          <div class="menu-price"><span class="yen">¥</span><span class="num">495</span><span class="tax">〜</span></div>
+          <div class="menu-desc">やきとりと相性抜群の日本酒・焼酎・クラフトビールを厳選。</div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <img src="https://y-smile.co.jp/wp-content/uploads/2024/11/6.jpg" alt="宴会コース" style="aspect-ratio:4/3">
         <div class="menu-overlay">
           <div class="menu-cat">COURSE</div>
-          <div class="menu-name">宴会コース</div>
-          <div class="menu-price">3,500円〜（飲み放題付き）</div>
-          <div class="menu-desc">2名〜大人数まで、様々なシーンに対応した宴会コースをご用意しています。</div>
+          <div class="menu-name">飲み放題付き宴会</div>
+          <div class="menu-price"><span class="yen">¥</span><span class="num">3,500</span><span class="tax">〜 / 人</span></div>
+          <div class="menu-desc">2名〜大人数まで。飲み会・歓送迎会・女子会に。</div>
         </div>
       </div>
     </div>
