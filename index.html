@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>やきとり家 すみれ | 鳥取県産大山どり専門</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black:   #0E0E0E;
+      --dark:    #1A1A1A;
+      --smoke:   #242424;
+      --mid:     #333333;
+      --gold:    #C8A95A;
+      --gold-lt: #E2C97E;
+      --cream:   #F5F0E8;
+      --text-muted: rgba(255,255,255,0.5);
+      --text-dim:   rgba(255,255,255,0.72);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Hiragino Mincho ProN','Yu Mincho','游明朝',Georgia,serif; background: var(--dark); color: #fff; overflow-x: hidden; }
+
+    /* ===== HEADER ===== */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 52px;
+      transition: background .4s, padding .4s, border-color .4s;
+      border-bottom: 1px solid transparent;
+    }
+    header.scrolled {
+      background: rgba(14,14,14,.96);
+      padding: 14px 52px;
+      border-color: rgba(200,169,90,.18);
+      backdrop-filter: blur(8px);
+    }
+    .logo { display:flex; align-items:center; gap:14px; text-decoration:none; }
+    .logo-img { height: 36px; }
+    .logo-text { display:flex; flex-direction:column; gap:2px; }
+    .logo-ja { font-size:15px; letter-spacing:.18em; color:#fff; font-weight:400; }
+    .logo-en { font-size:9px; letter-spacing:.38em; color:var(--gold); font-family:Georgia,serif; text-transform:uppercase; }
+
+    nav { display:flex; align-items:center; gap:34px; }
+    nav a {
+      color:rgba(255,255,255,.78); text-decoration:none; font-size:13px;
+      letter-spacing:.14em; font-family:'Hiragino Kaku Gothic ProN',sans-serif;
+      transition:color .25s; position:relative;
+    }
+    nav a::after {
+      content:''; position:absolute; bottom:-3px; left:0; right:0;
+      height:1px; background:var(--gold); transform:scaleX(0); transform-origin:left; transition:transform .3s;
+    }
+    nav a:hover { color:#fff; }
+    nav a:hover::after { transform:scaleX(1); }
+    .btn-reserve {
+      background:var(--gold); color:var(--black) !important;
+      padding:10px 24px; font-size:12px !important; font-weight:700 !important;
+      letter-spacing:.18em !important; font-family:'Hiragino Kaku Gothic ProN',sans-serif !important;
+      border-radius:1px; transition:background .25s, transform .2s !important;
+    }
+    .btn-reserve::after { display:none !important; }
+    .btn-reserve:hover { background:var(--gold-lt); transform:translateY(-1px); }
+
+    /* ===== HERO ===== */
+    .hero { height:100vh; position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+    .hero-slides { position:absolute; inset:0; }
+    .hero-slide {
+      position:absolute; inset:0; opacity:0; transition:opacity 1.2s ease;
+      background-size:cover; background-position:center;
+    }
+    .hero-slide.active { opacity:1; }
+    .hero-slide::after {
+      content:''; position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(14,14,14,.25) 0%, rgba(14,14,14,.55) 55%, rgba(14,14,14,.88) 100%);
+    }
+    .hero-slide-1 { background-image: url('https://y-smile.co.jp/wp-content/uploads/2025/11/588093856831504606.jpg'); }
+    .hero-slide-2 { background-image: url('https://y-smile.co.jp/wp-content/uploads/2025/07/%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%80%E3%83%BC2.jpg'); }
+    .hero-slide-3 { background-image: url('https://y-smile.co.jp/wp-content/uploads/2025/11/588094607477702709.jpg'); }
+
+    .hero-content {
+      position:relative; z-index:10; text-align:center;
+      display:flex; flex-direction:column; align-items:center; gap:24px;
+    }
+    .hero-eyebrow {
+      display:inline-flex; align-items:center; gap:14px;
+      font-size:10px; letter-spacing:.45em; color:var(--gold);
+      font-family:Georgia,serif; text-transform:uppercase;
+      animation: fadein 1s ease .3s both;
+    }
+    .hero-eyebrow span { display:block; width:28px; height:1px; background:var(--gold); opacity:.6; }
+    .hero-title {
+      font-size: clamp(50px,7vw,90px); font-weight:300; letter-spacing:.22em;
+      line-height:1.2; text-shadow:0 4px 32px rgba(0,0,0,.6);
+      animation: fadeup 1s ease .55s both;
+    }
+    .hero-title em { font-style:normal; color:var(--gold); }
+    .hero-copy {
+      font-size:14px; color:var(--text-dim); letter-spacing:.12em; line-height:2;
+      animation: fadeup 1s ease .8s both; max-width:460px;
+      font-family:'Hiragino Kaku Gothic ProN',sans-serif;
+    }
+    .hero-cta { display:flex; gap:14px; margin-top:6px; animation: fadeup 1s ease 1s both; }
+    .btn-gold {
+      background:var(--gold); color:var(--black); padding:15px 38px;
+      font-size:12px; letter-spacing:.22em; font-weight:700;
+      text-decoration:none; font-family:'Hiragino Kaku Gothic ProN',sans-serif;
+      transition:background .25s, transform .2s;
+    }
+    .btn-gold:hover { background:var(--gold-lt); transform:translateY(-2px); }
+    .btn-line {
+      border:1px solid rgba(255,255,255,.38); color:#fff; padding:15px 38px;
+      font-size:12px; letter-spacing:.22em; text-decoration:none;
+      font-family:'Hiragino Kaku Gothic ProN',sans-serif; transition:border-color .25s, color .25s;
+    }
+    .btn-line:hover { border-color:var(--gold); color:var(--gold); }
+
+    .hero-dots {
+      position:absolute; bottom:36px; left:50%; transform:translateX(-50%);
+      display:flex; gap:8px; z-index:10;
+    }
+    .hero-dot {
+      width:24px; height:2px; background:rgba(255,255,255,.3); cursor:pointer;
+      transition:background .3s, width .3s;
+    }
+    .hero-dot.active { background:var(--gold); width:40px; }
+
+    .scroll-hint {
+      position:absolute; bottom:36px; right:52px; z-index:10;
+      display:flex; flex-direction:column; align-items:center; gap:8px;
+      animation: fadein 1.5s ease 1.2s both;
+    }
+    .scroll-hint span { font-size:9px; letter-spacing:.4em; color:var(--text-muted); writing-mode:vertical-rl; }
+    .scroll-line { width:1px; height:50px; background:linear-gradient(180deg,var(--gold),transparent); animation:scrollpulse 2s ease-in-out infinite; }
+    @keyframes scrollpulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+    /* ===== TICKER ===== */
+    .ticker { background:var(--black); border-top:1px solid rgba(200,169,90,.2); border-bottom:1px solid rgba(200,169,90,.2); padding:12px 0; overflow:hidden; }
+    .ticker-track { display:flex; gap:56px; white-space:nowrap; animation:ticker 30s linear infinite; }
+    .ticker-item { display:flex; align-items:center; gap:14px; font-size:11px; letter-spacing:.22em; color:rgba(255,255,255,.6); font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
+    .ticker-sep { width:3px; height:3px; background:var(--gold); border-radius:50%; flex-shrink:0; }
+    @keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+    /* ===== SECTIONS ===== */
+    section { padding:96px 0; }
+    .container { max-width:1120px; margin:0 auto; padding:0 44px; }
+    .sec-label {
+      font-size:9px; letter-spacing:.55em; color:var(--gold);
+      font-family:Georgia,serif; text-transform:uppercase; margin-bottom:14px;
+      display:flex; align-items:center; gap:12px;
+    }
+    .sec-label::after { content:''; width:40px; height:1px; background:var(--gold); opacity:.45; }
+    .sec-title { font-size:clamp(26px,3.6vw,42px); font-weight:300; letter-spacing:.16em; line-height:1.45; }
+
+    /* ===== STORY ===== */
+    .story { background:var(--dark); }
+    .story-grid { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; }
+    .story-img-wrap { position:relative; aspect-ratio:4/5; overflow:hidden; }
+    .story-img-wrap img { width:100%; height:100%; object-fit:cover; }
+    .story-badge {
+      position:absolute; bottom:28px; left:-20px;
+      background:var(--black); border:1px solid rgba(200,169,90,.5);
+      padding:18px 24px; text-align:center; min-width:110px;
+    }
+    .story-badge .num { font-size:34px; color:var(--gold); line-height:1; font-weight:300; }
+    .story-badge .num-sub { font-size:9px; letter-spacing:.22em; color:var(--text-muted); font-family:'Hiragino Kaku Gothic ProN',sans-serif; margin-top:4px; }
+    .story-text { display:flex; flex-direction:column; gap:26px; }
+    .story-body { font-size:15px; line-height:2.3; color:var(--text-dim); }
+    .story-tags { display:flex; gap:10px; flex-wrap:wrap; }
+    .tag { border:1px solid rgba(200,169,90,.35); padding:6px 14px; font-size:10px; letter-spacing:.18em; color:var(--gold); font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
+
+    /* ===== MENU ===== */
+    .menu-sec { background:var(--smoke); }
+    .menu-head { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:48px; }
+    .all-link { font-size:11px; letter-spacing:.22em; color:var(--gold); text-decoration:none; font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
+    .menu-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; }
+    .menu-card { position:relative; aspect-ratio:3/4; overflow:hidden; cursor:pointer; }
+    .menu-card img { width:100%; height:100%; object-fit:cover; transition:transform .7s ease; }
+    .menu-card:hover img { transform:scale(1.07); }
+    .menu-overlay {
+      position:absolute; inset:0;
+      background:linear-gradient(180deg,transparent 35%,rgba(14,14,14,.9) 100%);
+      display:flex; flex-direction:column; justify-content:flex-end; padding:26px;
+    }
+    .menu-cat { font-size:9px; letter-spacing:.35em; color:var(--gold); margin-bottom:7px; font-family:Georgia,serif; }
+    .menu-name { font-size:19px; letter-spacing:.14em; }
+    .menu-price { font-size:12px; color:var(--text-muted); margin-top:4px; font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
+    .menu-desc {
+      font-size:12px; line-height:1.8; color:rgba(255,255,255,.55); margin-top:10px;
+      max-height:0; overflow:hidden; transition:max-height .4s;
+      font-family:'Hiragino Kaku Gothic ProN',sans-serif;
+    }
+    .menu-card:hover .menu-desc { max-height:72px; }
+
+    /* ===== KODAWARI ===== */
+    .kodawari { background:var(--dark); }
+    .kodawari-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:52px; }
+    .kodawari-item { position:relative; aspect-ratio:1/1; overflow:hidden; }
+    .kodawari-item img { width:100%; height:100%; object-fit:cover; transition:transform .6s; }
+    .kodawari-item:hover img { transform:scale(1.06); }
+    .kodawari-text {
+      position:absolute; inset:0; padding:28px;
+      background:linear-gradient(180deg,rgba(14,14,14,.1) 0%,rgba(14,14,14,.75) 100%);
+      display:flex; flex-direction:column; justify-content:flex-end;
+    }
+    .kodawari-num { font-size:9px; letter-spacing:.4em; color:var(--gold); margin-bottom:8px; font-family:Georgia,serif; }
+    .kodawari-title { font-size:18px; letter-spacing:.12em; }
+    .kodawari-body { font-size:12px; line-height:1.8; color:rgba(255,255,255,.6); margin-top:8px; font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
+
+    /* ===== SEAT / シーン ===== */
+    .scene { background:var(--smoke); }
+    .scene-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:48px; }
+    .scene-card { position:relative; aspect-ratio:4/3; overflow:hidden; cursor:pointer; }
+    .scene-card img { width:100%; height:100%; object-fit:cover; transition:transform .6s; }
+    .scene-card:hover img { transform:scale(1.08); }
+    .scene-mask {
+      position:absolute; inset:0; background:rgba(14,14,14,.42);
+      display:flex; align-items:flex-end; padding:20px;
+      transition:background .3s;
+    }
+    .scene-card:hover .scene-mask { background:rgba(14,14,14,.22); }
+    .scene-name { font-size:14px; letter-spacing:.2em; text-shadow:0 2px 8px rgba(0,0,0,.6); }
+
+    /* ===== NEWS ===== */
+    .news-sec { background:var(--dark); }
+    .news-list { margin-top:44px; }
+    .news-row {
+      display:grid; grid-template-columns:100px 90px 1fr 20px;
+      gap:24px; align-items:center; padding:20px 0;
+      border-bottom:1px solid rgba(255,255,255,.07);
+      text-decoration:none; color:#fff; transition:padding-left .25s;
+    }
+    .news-row:hover { padding-left:6px; }
+    .news-date { font-size:12px; color:var(--text-muted); font-family:Georgia,serif; letter-spacing:.06em; }
+    .news-cat { font-size:9px; letter-spacing:.18em; color:var(--gold); border:1px solid rgba(200,169,90,.35); padding:4px 10px; font-family:'Hiragino Kaku Gothic ProN',sans-serif; text-align:center; }
+    .news-ttl { font-size:13px; letter-spacing:.07em; color:rgba(255,255,255,.8); font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
+    .news-arr { color:var(--gold); font-size:14px; opacity:.5; transition:opacity .25s; }
+    .news-row:hover .news-arr { opacity:1; }
+
+    /* ===== BLOG ===== */
+    .blog-sec { background:var(--dark); }
+    .blog-head { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:48px; }
+    .blog-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+    .blog-card { display:flex; flex-direction:column; text-decoration:none; color:#fff; }
+    .blog-thumb { aspect-ratio:16/9; overflow:hidden; position:relative; }
+    .blog-thumb img { width:100%; height:100%; object-fit:cover; transition:transform .6s; }
+    .blog-card:hover .blog-thumb img { transform:scale(1.06); }
+    .blog-cat { position:absolute; top:14px; left:14px; background:var(--gold); color:var(--black); font-size:9px; letter-spacing:.2em; padding:4px 10px; font-family:'Hiragino Kaku Gothic ProN',sans-serif; font-weight:700; }
+    .blog-body { padding:20px 0 0; display:flex; flex-direction:column; gap:8px; }
+    .blog-date { font-size:10px; letter-spacing:.18em; color:var(--text-muted); font-family:Georgia,serif; }
+    .blog-ttl { font-size:15px; letter-spacing:.08em; line-height:1.7; color:rgba(255,255,255,.85); transition:color .25s; }
+    .blog-card:hover .blog-ttl { color:var(--gold); }
+    .blog-excerpt { font-size:12px; line-height:1.9; color:var(--text-muted); font-family:'Hiragino Kaku Gothic ProN',sans-serif; margin-top:4px; }
+    .blog-readmore { font-size:10px; letter-spacing:.22em; color:var(--gold); font-family:Georgia,serif; margin-top:12px; display:flex; align-items:center; gap:8px; }
+    .blog-readmore::after { content:''; display:block; width:24px; height:1px; background:var(--gold); transition:width .3s; }
+    .blog-card:hover .blog-readmore::after { width:40px; }
+
+    /* ===== INSTAGRAM ===== */
+    .insta-sec { background:var(--smoke); }
+    .insta-head { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:36px; }
+    .insta-follow { display:flex; align-items:center; gap:8px; color:var(--gold); text-decoration:none; font-size:11px; letter-spacing:.2em; font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
+    /* Instagram実埋め込み用ラッパー */
+    .insta-embed-wrap {
+      display:grid; grid-template-columns:repeat(6,1fr); gap:3px;
+    }
+    .insta-embed-wrap .sbi_item {
+      aspect-ratio:1; overflow:hidden;
+    }
+    /* フォールバック（プレビュー用） */
+    .insta-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:3px; }
+    .insta-cell { aspect-ratio:1; overflow:hidden; position:relative; }
+    .insta-cell img { width:100%; height:100%; object-fit:cover; transition:transform .5s; }
+    .insta-cell:hover img { transform:scale(1.1); }
+    .insta-hover { position:absolute; inset:0; background:rgba(14,14,14,.5); display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .3s; font-size:22px; }
+    .insta-cell:hover .insta-hover { opacity:1; }
+    .insta-note { margin-top:14px; font-size:11px; color:var(--text-muted); text-align:center; letter-spacing:.1em; font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
+
+    /* ===== RESERVE CTA ===== */
+    .reserve-cta {
+      background:var(--black);
+      border-top:1px solid rgba(200,169,90,.15);
+      padding:100px 0; text-align:center;
+    }
+    .reserve-cta h2 { font-size:clamp(26px,3.8vw,46px); font-weight:300; letter-spacing:.2em; margin-bottom:16px; }
+    .reserve-cta p { font-size:13px; color:var(--text-muted); letter-spacing:.15em; margin-bottom:48px; font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
+    .reserve-services { display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
+    .r-service {
+      border:1px solid rgba(255,255,255,.18); padding:20px 36px;
+      text-decoration:none; color:#fff; text-align:center; min-width:160px;
+      transition:border-color .25s, background .25s;
+    }
+    .r-service:hover { border-color:var(--gold); background:rgba(200,169,90,.06); }
+    .r-service .svc-name { font-size:15px; letter-spacing:.1em; margin-bottom:4px; }
+    .r-service .svc-sub { font-size:9px; color:var(--text-muted); letter-spacing:.18em; font-family:Georgia,serif; }
+    .r-service.highlight { border-color:rgba(200,169,90,.5); background:rgba(200,169,90,.08); }
+    .r-service.highlight .svc-name { color:var(--gold); }
+
+    /* ===== FOOTER ===== */
+    footer { background:var(--black); padding:72px 0 36px; border-top:1px solid rgba(200,169,90,.12); }
+    .footer-grid { display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:52px; padding-bottom:52px; border-bottom:1px solid rgba(255,255,255,.07); }
+    .footer-brand-logo { height:32px; margin-bottom:18px; }
+    .footer-brand p { font-size:12px; line-height:2; color:var(--text-muted); font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
+    .footer-col h4 { font-size:10px; letter-spacing:.3em; color:var(--gold); margin-bottom:18px; font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
+    .footer-col ul { list-style:none; display:flex; flex-direction:column; gap:11px; }
+    .footer-col ul li a { font-size:12px; color:var(--text-muted); text-decoration:none; letter-spacing:.08em; font-family:'Hiragino Kaku Gothic ProN',sans-serif; transition:color .25s; }
+    .footer-col ul li a:hover { color:#fff; }
+    .footer-bottom { display:flex; justify-content:space-between; align-items:center; padding-top:28px; }
+    .footer-copy { font-size:10px; color:rgba(255,255,255,.22); letter-spacing:.1em; font-family:'Hiragino Kaku Gothic ProN',sans-serif; }
+    .footer-sns { display:flex; gap:12px; }
+    .f-sns { width:34px; height:34px; border:1px solid rgba(255,255,255,.14); display:flex; align-items:center; justify-content:center; text-decoration:none; color:var(--text-muted); font-size:13px; transition:border-color .25s, color .25s; }
+    .f-sns:hover { border-color:var(--gold); color:var(--gold); }
+
+    /* ===== ANIM ===== */
+    @keyframes fadein { from{opacity:0} to{opacity:1} }
+    @keyframes fadeup { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+    .reveal { opacity:0; transform:translateY(28px); transition:opacity .8s ease, transform .8s ease; }
+    .reveal.in { opacity:1; transform:translateY(0); }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="hdr">
+  <a href="#" class="logo">
+    <img class="logo-img" src="https://y-smile.co.jp/wp-content/themes/sumire/img/logo-new.png" alt="やきとり家すみれ" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="logo-text" style="display:none">
+      <span class="logo-ja">やきとり家 すみれ</span>
+      <span class="logo-en">Yakitori-ya Sumire</span>
+    </div>
+  </a>
+  <nav>
+    <a href="#">メニュー</a>
+    <a href="#">こだわり</a>
+    <a href="#">ご利用シーン</a>
+    <a href="#">ニュース</a>
+    <a href="#">店舗検索</a>
+    <a href="#" class="btn-reserve">ご予約</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-slides">
+    <div class="hero-slide hero-slide-1 active"></div>
+    <div class="hero-slide hero-slide-2"></div>
+    <div class="hero-slide hero-slide-3"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow"><span></span>鳥取県産 大山どり専門<span></span></div>
+    <h1 class="hero-title">炭火の<em>匠</em>が<br>紡ぐ一串</h1>
+    <p class="hero-copy">素材の声に耳を傾け、炭火が引き出す旨みを一串に込めて。<br>大山どりとともに歩んできた、すみれの15年。</p>
+    <div class="hero-cta">
+      <a href="#" class="btn-gold">メニューを見る</a>
+      <a href="#" class="btn-line">店舗を探す</a>
+    </div>
+  </div>
+  <div class="hero-dots">
+    <div class="hero-dot active" data-i="0"></div>
+    <div class="hero-dot" data-i="1"></div>
+    <div class="hero-dot" data-i="2"></div>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <span>SCROLL</span>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-item"><span class="ticker-sep"></span><span>鳥取県産 大山どり使用</span></div>
+    <div class="ticker-item"><span class="ticker-sep"></span><span>全国76店舗展開</span></div>
+    <div class="ticker-item"><span class="ticker-sep"></span><span>王様レバー 1本275円</span></div>
+    <div class="ticker-item"><span class="ticker-sep"></span><span>ひなトロ 1本264円</span></div>
+    <div class="ticker-item"><span class="ticker-sep"></span><span>宴会・飲み会・接待・女子会</span></div>
+    <div class="ticker-item"><span class="ticker-sep"></span><span>テイクアウト・デリバリー対応</span></div>
+    <div class="ticker-item"><span class="ticker-sep"></span><span>創業2009年 やきとり家すみれ</span></div>
+    <!-- repeat -->
+    <div class="ticker-item"><span class="ticker-sep"></span><span>鳥取県産 大山どり使用</span></div>
+    <div class="ticker-item"><span class="ticker-sep"></span><span>全国76店舗展開</span></div>
+    <div class="ticker-item"><span class="ticker-sep"></span><span>王様レバー 1本275円</span></div>
+    <div class="ticker-item"><span class="ticker-sep"></span><span>ひなトロ 1本264円</span></div>
+    <div class="ticker-item"><span class="ticker-sep"></span><span>宴会・飲み会・接待・女子会</span></div>
+    <div class="ticker-item"><span class="ticker-sep"></span><span>テイクアウト・デリバリー対応</span></div>
+    <div class="ticker-item"><span class="ticker-sep"></span><span>創業2009年 やきとり家すみれ</span></div>
+  </div>
+</div>
+
+<!-- BRAND STORY -->
+<section class="story">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-img-wrap reveal">
+        <img src="https://y-smile.co.jp/wp-content/uploads/2024/11/5.jpg" alt="大山どり やきとり" onerror="this.src='https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy1.jpg'">
+        <div class="story-badge">
+          <div class="num">76</div>
+          <div class="num-sub">STORES</div>
+        </div>
+      </div>
+      <div class="story-text reveal">
+        <div class="sec-label">Brand Story</div>
+        <h2 class="sec-title">大山のふもとで<br>育まれた、確かな旨み</h2>
+        <p class="story-body">
+          鳥取県大山の豊かな自然の中で育った「大山どり」。<br>
+          その品質と旨みに惚れ込んだ創業者が、<br>
+          2009年に一号店を開いてから15年。<br><br>
+          炭火という原始的な料理法が、<br>
+          素材の持つ本来の力を最大限に引き出す。<br>
+          余計なものは加えず、ただ真摯に向き合う。<br>
+          それが、すみれの変わらぬ哲学です。
+        </p>
+        <div class="story-tags">
+          <span class="tag">大山どり</span>
+          <span class="tag">国産鶏100%</span>
+          <span class="tag">炭火焼き</span>
+          <span class="tag">創業2009年</span>
+        </div>
+        <a href="#" class="btn-line" style="width:fit-content;margin-top:4px;">こだわりを見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu-sec">
+  <div class="container">
+    <div class="menu-head">
+      <div>
+        <div class="sec-label">Menu</div>
+        <h2 class="sec-title">看板の一串</h2>
+      </div>
+      <a href="#" class="all-link">メニュー一覧 →</a>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-card reveal">
+        <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/smile2021GM_shio.jpg" alt="塩焼き">
+        <div class="menu-overlay">
+          <div class="menu-cat">SIGNATURE</div>
+          <div class="menu-name">王様レバー</div>
+          <div class="menu-price">1本 275円（税込）</div>
+          <div class="menu-desc">臭みゼロ、濃厚な旨みがとろける看板商品。大山どりの鮮度だから実現するなめらかな食感。</div>
+        </div>
+      </div>
+      <div class="menu-card reveal">
+        <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/smile2021GM_tare.jpg" alt="タレ焼き">
+        <div class="menu-overlay">
+          <div class="menu-cat">SIGNATURE</div>
+          <div class="menu-name">ひなトロ</div>
+          <div class="menu-price">1本 264円（税込）</div>
+          <div class="menu-desc">幻の希少部位。口の中でとろける脂と、炭火の香りが絶妙に絡み合う一串。</div>
+        </div>
+      </div>
+      <div class="menu-card reveal">
+        <img src="https://y-smile.co.jp/wp-content/uploads/2024/11/6.jpg" alt="宴会コース">
+        <div class="menu-overlay">
+          <div class="menu-cat">COURSE</div>
+          <div class="menu-name">宴会コース</div>
+          <div class="menu-price">3,500円〜（飲み放題付き）</div>
+          <div class="menu-desc">2名〜大人数まで、様々なシーンに対応した宴会コースをご用意しています。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KODAWARI -->
+<section class="kodawari">
+  <div class="container">
+    <div class="sec-label">Our Promise</div>
+    <h2 class="sec-title">すみれの三つのこだわり</h2>
+    <div class="kodawari-grid">
+      <div class="kodawari-item reveal">
+        <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy1.jpg" alt="素材">
+        <div class="kodawari-text">
+          <div class="kodawari-num">01 — INGREDIENT</div>
+          <div class="kodawari-title">厳選素材</div>
+          <div class="kodawari-body">鳥取県産大山どりのみを使用。産地から食卓まで、鮮度と品質を一切妥協しません。</div>
+        </div>
+      </div>
+      <div class="kodawari-item reveal">
+        <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy2.jpg" alt="炭火">
+        <div class="kodawari-text">
+          <div class="kodawari-num">02 — CHARCOAL</div>
+          <div class="kodawari-title">炭火の技</div>
+          <div class="kodawari-body">遠赤外線が素材の芯まで熱を届け、炭火だけが生み出す唯一の焼き上がりを実現。</div>
+        </div>
+      </div>
+      <div class="kodawari-item reveal">
+        <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy3.jpg" alt="ドリンク">
+        <div class="kodawari-text">
+          <div class="kodawari-num">03 — DRINK</div>
+          <div class="kodawari-title">ドリンクの充実</div>
+          <div class="kodawari-body">やきとりに合う日本酒・焼酎・クラフトビールを厳選。素材の旨みを引き立てます。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCENE -->
+<section class="scene">
+  <div class="container">
+    <div class="sec-label">Scene</div>
+    <h2 class="sec-title">あらゆる場面で</h2>
+    <div class="scene-grid">
+      <div class="scene-card reveal">
+        <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/seat1.jpg" alt="宴会">
+        <div class="scene-mask"><span class="scene-name">宴会・飲み会</span></div>
+      </div>
+      <div class="scene-card reveal">
+        <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/seat2.jpg" alt="接待">
+        <div class="scene-mask"><span class="scene-name">接待・会食</span></div>
+      </div>
+      <div class="scene-card reveal">
+        <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/seat3.jpg" alt="女子会">
+        <div class="scene-mask"><span class="scene-name">女子会・記念日</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="news-sec">
+  <div class="container">
+    <div class="sec-label">News</div>
+    <h2 class="sec-title">お知らせ</h2>
+    <div class="news-list reveal">
+      <a href="#" class="news-row">
+        <span class="news-date">2026.06.10</span>
+        <span class="news-cat">新メニュー</span>
+        <span class="news-ttl">2026年春夏グランドメニューをリリースしました</span>
+        <span class="news-arr">→</span>
+      </a>
+      <a href="#" class="news-row">
+        <span class="news-date">2026.05.28</span>
+        <span class="news-cat">お知らせ</span>
+        <span class="news-ttl">渋谷エリアに新店舗オープン予定のお知らせ</span>
+        <span class="news-arr">→</span>
+      </a>
+      <a href="#" class="news-row">
+        <span class="news-date">2026.05.15</span>
+        <span class="news-cat">キャンペーン</span>
+        <span class="news-ttl">創業記念キャンペーン：王様レバー特別価格で提供中</span>
+        <span class="news-arr">→</span>
+      </a>
+      <a href="#" class="news-row">
+        <span class="news-date">2026.04.01</span>
+        <span class="news-cat">ブログ</span>
+        <span class="news-ttl">大山どりの生産者を訪ねて — 鳥取・大山の旅レポート</span>
+        <span class="news-arr">→</span>
+      </a>
+    </div>
+    <div style="text-align:center;margin-top:44px;">
+      <a href="#" class="btn-line" style="display:inline-block;">ニュース一覧を見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="blog-sec">
+  <div class="container">
+    <div class="blog-head">
+      <div>
+        <div class="sec-label">Blog</div>
+        <h2 class="sec-title">すみれの日々</h2>
+      </div>
+      <a href="#" class="all-link">ブログ一覧 →</a>
+    </div>
+    <div class="blog-grid">
+      <a href="#" class="blog-card reveal">
+        <div class="blog-thumb">
+          <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy1.jpg" alt="大山どり生産者訪問">
+          <span class="blog-cat">産地レポート</span>
+        </div>
+        <div class="blog-body">
+          <span class="blog-date">2026.06.05</span>
+          <p class="blog-ttl">大山どりの生産者を訪ねて —<br>鳥取・大山の旅レポート</p>
+          <p class="blog-excerpt">すみれが使う大山どりがどのように育てられているか、実際に産地を訪れてきました。牧場の広大な自然と、生産者のこだわりをレポートします。</p>
+          <span class="blog-readmore">READ MORE</span>
+        </div>
+      </a>
+      <a href="#" class="blog-card reveal">
+        <div class="blog-thumb">
+          <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/smile2021GM_shio.jpg" alt="春夏メニュー">
+          <span class="blog-cat">新メニュー</span>
+        </div>
+        <div class="blog-body">
+          <span class="blog-date">2026.05.20</span>
+          <p class="blog-ttl">2026年春夏メニューの見どころを<br>スタッフが徹底解説</p>
+          <p class="blog-excerpt">今シーズンの新メニューから特におすすめの一串を、開発担当スタッフが自ら語ります。こだわりの食材と仕込みのポイントもご紹介。</p>
+          <span class="blog-readmore">READ MORE</span>
+        </div>
+      </a>
+      <a href="#" class="blog-card reveal">
+        <div class="blog-thumb">
+          <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/seat1.jpg" alt="宴会活用術">
+          <span class="blog-cat">ご利用ガイド</span>
+        </div>
+        <div class="blog-body">
+          <span class="blog-date">2026.04.28</span>
+          <p class="blog-ttl">すみれをもっと楽しむ —<br>宴会・貸切の賢い活用術</p>
+          <p class="blog-excerpt">会社の飲み会から家族のお祝いまで、すみれをより楽しんでいただくためのシーン別おすすめプランをご紹介します。</p>
+          <span class="blog-readmore">READ MORE</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="insta-sec">
+  <div class="container">
+    <div class="insta-head">
+      <div>
+        <div class="sec-label">Instagram</div>
+        <h2 class="sec-title" style="font-size:26px;">毎日更新中</h2>
+      </div>
+      <a href="#" class="insta-follow">
+        <img src="https://y-smile.co.jp/wp-content/themes/sumire/img/icon_instagram.png" style="height:18px" onerror="this.replaceWith(document.createTextNode('📷'))">
+        @yakitori_sumire
+      </a>
+    </div>
+    <!-- WordPress実装時：[instagram-feed num=6 cols=6 showheader=false showbutton=false] -->
+    <div class="insta-grid reveal" id="insta-feed">
+      <div class="insta-cell"><img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy4.jpg" alt=""><div class="insta-hover">♥</div></div>
+      <div class="insta-cell"><img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy5.jpg" alt=""><div class="insta-hover">♥</div></div>
+      <div class="insta-cell"><img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy1.jpg" alt=""><div class="insta-hover">♥</div></div>
+      <div class="insta-cell"><img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/policy2.jpg" alt=""><div class="insta-hover">♥</div></div>
+      <div class="insta-cell"><img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/seat1.jpg" alt=""><div class="insta-hover">♥</div></div>
+      <div class="insta-cell"><img src="https://y-smile.co.jp/wp-content/themes/sumire/img/top/seat2.jpg" alt=""><div class="insta-hover">♥</div></div>
+    </div>
+    <p class="insta-note">※ WordPress実装時はSmash Balloon「Instagram Feed」プラグインで最新6投稿が自動表示されます</p>
+  </div>
+</section>
+
+<!-- RESERVE CTA -->
+<div class="reserve-cta">
+  <div class="container">
+    <h2>今夜の席、ご予約はこちら</h2>
+    <p>各種予約サービス・お電話からご予約いただけます</p>
+    <div class="reserve-services">
+      <a href="#" class="r-service"><div class="svc-name">食べログ</div><div class="svc-sub">TABELOG RESERVE</div></a>
+      <a href="#" class="r-service"><div class="svc-name">ホットペッパー</div><div class="svc-sub">HOT PEPPER RESERVE</div></a>
+      <a href="#" class="r-service"><div class="svc-name">Tablecheck</div><div class="svc-sub">DIRECT RESERVE</div></a>
+      <a href="#" class="r-service highlight"><div class="svc-name">店舗に電話</div><div class="svc-sub">CALL RESERVE</div></a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-brand-logo" src="https://y-smile.co.jp/wp-content/themes/sumire/img/footer-new-logo.png" alt="やきとり家すみれ" onerror="this.style.display='none'">
+        <p>鳥取県産大山どりを使った本格炭火やきとりの専門店。2009年の創業以来、素材とこだわりを大切に全国76店舗を展開しています。</p>
+      </div>
+      <div class="footer-col">
+        <h4>メニュー</h4>
+        <ul>
+          <li><a href="#">おすすめ・看板メニュー</a></li>
+          <li><a href="#">宴会コース</a></li>
+          <li><a href="#">ドリンクメニュー</a></li>
+          <li><a href="#">テイクアウト</a></li>
+          <li><a href="#">期間限定メニュー</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>ご利用案内</h4>
+        <ul>
+          <li><a href="#">ご利用シーン</a></li>
+          <li><a href="#">店舗検索</a></li>
+          <li><a href="#">ご予約</a></li>
+          <li><a href="#">テイクアウト・デリバリー</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>会社情報</h4>
+        <ul>
+          <li><a href="#">ブランドストーリー</a></li>
+          <li><a href="#">ニュース</a></li>
+          <li><a href="#">採用情報</a></li>
+          <li><a href="#">FC加盟・物件募集</a></li>
+          <li><a href="#">プライバシーポリシー</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 株式会社すみれ All Rights Reserved.</span>
+      <div class="footer-sns">
+        <a href="#" class="f-sns">📷</a>
+        <a href="#" class="f-sns">𝕏</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Header scroll
+  const hdr = document.getElementById('hdr');
+  window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 50));
+
+  // Hero slideshow
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots   = document.querySelectorAll('.hero-dot');
+  let cur = 0;
+  function goSlide(n) {
+    slides[cur].classList.remove('active');
+    dots[cur].classList.remove('active');
+    cur = n;
+    slides[cur].classList.add('active');
+    dots[cur].classList.add('active');
+  }
+  dots.forEach(d => d.addEventListener('click', () => goSlide(+d.dataset.i)));
+  setInterval(() => goSlide((cur + 1) % slides.length), 5000);
+
+  // Scroll reveal
+  const revs = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('in'), i * 90);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revs.forEach(r => io.observe(r));
+</script>
+</body>
+</html>
